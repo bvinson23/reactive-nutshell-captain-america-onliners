@@ -7,7 +7,7 @@ export default {
     getAll() {
         return fetch(`${remoteURL}/events/`).then(result => result.json())
     },
-    delete(id) {
+    remove(id) {
         return fetch(`${remoteURL}/events/${id}`, {
             method: "DELETE"
         }).then(result => result.json())
@@ -21,13 +21,13 @@ export default {
             body: JSON.stringify(newEvent)
         }).then(data => data.json())
     },
-    reform(editedEvent) {
+    updateEvent(editedEvent) {
         return fetch(`${remoteURL}/events/${editedEvent.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(editedEvent)
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedEvent)
         }).then(data => data.json());
-    }
+      }
 }

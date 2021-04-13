@@ -15,8 +15,9 @@ const EventList = (props) => {
     }, []);
 
     const deleteEvent = id => {
-        EventManager.delete(id)
+        EventManager.remove(id)
             .then(() => EventManager.getAll().then(setEvents));
+            console.log(deleteEvent)
     };
     return (
         <>
@@ -30,7 +31,7 @@ const EventList = (props) => {
             </section>
             <div className="container-cards">
                 {events.map(event => {
-                    if (event.userId === parseInt(sessionStorage.getItem("activeUser"))) {
+                    if (event.userId === parseInt(sessionStorage.getItem("nutshell_user"))) {
                         return (
                             <EventCard
                                 key={event.id}
