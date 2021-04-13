@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom"
+import { Route} from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
@@ -7,8 +7,8 @@ import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
 
 export const ApplicationViews = (props) => {
-  const hasUser = props.hasUser;
   const setUser = props.setUser;
+  const hasUser = true;
   return (
     <>
 
@@ -44,13 +44,11 @@ export const ApplicationViews = (props) => {
           return <EventForm {...props} />
         }} />
       
-      <Route
+      <Route exact
         path="/events/:eventId(\d+)/edit"
-        render={props => {
+        render={(props) => {
           if (hasUser) {
             return <EventEditForm {...props} />
-          } else {
-            return <Redirect to="/login" />
           }
         }} />
     </>

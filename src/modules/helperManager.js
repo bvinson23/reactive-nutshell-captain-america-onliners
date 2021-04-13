@@ -4,8 +4,7 @@ export function firstLetterCase(str) {
 export function splitTypeArray(arr){
     return arr.join(" and ");
 }
-export function sort(x,y) {
-    let a= new Date(x.entryDate),
-    b = new Date(y.entryDate);
-    return b - a;
-}
+// export function sort(x,y) {
+//     let a= new Date(x.date),b = new Date(y.date);
+//     return b - a;
+// }
