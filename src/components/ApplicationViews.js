@@ -40,8 +40,6 @@ export const ApplicationViews = (props) => {
         render={props => {
           if (hasUser) {
             return <EventEditForm {...props} />
-          } else {
-            return <Redirect to="/login" />
           }
         }} />
     </>
