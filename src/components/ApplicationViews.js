@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
+import { FriendList } from "./friends/FriendList";
 export const ApplicationViews = (props) => {
   const hasUser = props.hasUser;
   const setUser = props.setUser;
@@ -13,6 +14,7 @@ export const ApplicationViews = (props) => {
         {/* Render the component for news articles */}
       </Route>
       <Route path="/friends">
+        <FriendList />
         {/* Render the component for list of friends */}
       </Route>
       <Route path="/messages">
