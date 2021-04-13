@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { deleteArticle, getAllArticles, getArticleById } from "../../modules/ArticleManager";
 import { Article } from "./Article"
+import "./Article.css"
 
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -23,12 +24,21 @@ export const ArticleList = () => {
     }, []);
 
     return (
-        <div className="article-cards">
-            {articles.map(article => 
-                <Article 
-                    key={article.id} 
-                    article={article} 
-                    handleDeleteArticle={handleDeleteArticle} />)}
-        </div>
+        <>
+            <section className="section-content">
+                <button type="button"
+                    className="btn"
+                    onClick={() => {history.push("/create")}}>
+                        New Article
+                    </button>
+            </section>
+            <div className="article-cards">
+                {articles.map(article => 
+                    <Article 
+                        key={article.id} 
+                        article={article} 
+                        handleDeleteArticle={handleDeleteArticle} />)}
+            </div>
+        </>
     );
 };

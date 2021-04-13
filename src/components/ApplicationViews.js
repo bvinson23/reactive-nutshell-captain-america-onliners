@@ -4,6 +4,7 @@ import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
 import { ArticleList } from "./articles/ArticleList";
+import { ArticleForm } from "./articles/ArticleForm";
 
 export const ApplicationViews = (props) => {
   const hasUser = props.hasUser;
@@ -14,6 +15,11 @@ export const ApplicationViews = (props) => {
       <Route exact path="/">
         {/* Render the component for news articles */}
         <ArticleList />
+      </Route>
+
+      <Route path="/create">
+        {/* Render the component for creating a new article */}
+        <ArticleForm />
       </Route>
       <Route path="/friends">
         {/* Render the component for list of friends */}
