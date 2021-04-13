@@ -46,7 +46,7 @@ export const ArticleForm = () => {
         <form className="articleForm">
             <h2 className="articleForm__title">New Article</h2>
             <fieldset>
-                <div className="form-group">
+                <div>
                     <input
                         type="hidden"
                         id="timestamp"
