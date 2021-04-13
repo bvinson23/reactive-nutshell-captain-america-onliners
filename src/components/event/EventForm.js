@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import EventManager from '../../modules/EventManager';
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ name: "", date: "", location: "", userId: 0 });
+    const [event, setEvent] = useState({ name: "", date: "", location: "", userId: parseInt(sessionStorage.getItem("nutshell_user")) });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -21,23 +21,12 @@ const EventForm = props => {
         }
     }
 
-    const activeId = sessionStorage.getItem("activeUser")
-    event.userId = parseInt(activeId)
-
     return (
         <>
             <form>
                 <fieldset>
                     <div className="formgrid">
-                        <input
-                            type="hidden"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="userId"
-                            value={event.userId}
-                        />
-
+                    <label htmlFor="name">Event name</label>
                         <input
                             type="text"
                             required
@@ -46,8 +35,8 @@ const EventForm = props => {
                             id="name"
                             value={event.name}
                         />
-                        <label htmlFor="name">Event name</label>
-
+                        
+                        <label htmlFor="date">Date</label>
                         <input
                             type="date"
                             required
@@ -56,8 +45,8 @@ const EventForm = props => {
                             id="date"
                             value={event.date}
                         />
-                        <label htmlFor="date">Date</label>
-
+                        
+                        <label htmlFor="location">Location</label>
                         <input
                             type="text"
                             required
@@ -66,7 +55,7 @@ const EventForm = props => {
                             id="location"
                             value={event.location}
                         />
-                        <label htmlFor="location">Location</label>
+
                     </div>
 
                     <div className="alignRight">
