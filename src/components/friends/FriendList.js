@@ -7,7 +7,7 @@ export const FriendList = () =>{
     const history = useHistory();
     const handleDeleteFriend = id =>{
         deleteFriend(id)
-        .then(()=> getAllFriends().then(setFriends));
+        .then(()=> getAllFriends().then(setFriends).then(window.location.reload ()));
     };
     const [friends,setFriends] = useState([]);
     
