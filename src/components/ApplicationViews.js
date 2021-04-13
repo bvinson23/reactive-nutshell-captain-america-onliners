@@ -3,7 +3,10 @@ import { Route} from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
+import { ArticleList } from "./articles/ArticleList";
+import { ArticleForm } from "./articles/ArticleForm";
 import { FriendList } from "./friends/FriendList";
+
 export const ApplicationViews = (props) => {
   const setUser = props.setUser;
   const hasUser = true;
@@ -12,6 +15,12 @@ export const ApplicationViews = (props) => {
 
       <Route exact path="/">
         {/* Render the component for news articles */}
+        <ArticleList />
+      </Route>
+
+      <Route path="/create">
+        {/* Render the component for creating a new article */}
+        <ArticleForm />
       </Route>
       <Route path="/friends">
         <FriendList />
