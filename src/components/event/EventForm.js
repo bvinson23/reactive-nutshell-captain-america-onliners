@@ -26,6 +26,7 @@ const EventForm = props => {
             <form>
                 <fieldset>
                     <div className="formgrid">
+                    <label htmlFor="name">Event name</label>
                         <input
                             type="text"
                             required
@@ -34,8 +35,8 @@ const EventForm = props => {
                             id="name"
                             value={event.name}
                         />
-                        <label htmlFor="name">Event name</label>
-
+                        
+                        <label htmlFor="date">Date</label>
                         <input
                             type="date"
                             required
@@ -44,8 +45,8 @@ const EventForm = props => {
                             id="date"
                             value={event.date}
                         />
-                        <label htmlFor="date">Date</label>
-
+                        
+                        <label htmlFor="location">Location</label>
                         <input
                             type="text"
                             required
@@ -54,7 +55,7 @@ const EventForm = props => {
                             id="location"
                             value={event.location}
                         />
-                        <label htmlFor="location">Location</label>
+
                     </div>
 
                     <div className="alignRight">
