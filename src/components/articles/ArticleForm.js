@@ -8,7 +8,8 @@ export const ArticleForm = () => {
         title: "",
         userId: parseInt(sessionStorage.getItem("nutshell_user")),
         synopsis: "",
-        url: ""
+        url: "",
+        timestamp: new Date().toLocaleString()
     });
 
     const [isLoading, setIsLoading] = useState(false);
@@ -44,6 +45,17 @@ export const ArticleForm = () => {
     return (
         <form className="articleForm">
             <h2 className="articleForm__title">New Article</h2>
+            <fieldset>
+                <div className="form-group">
+                    <input
+                        type="hidden"
+                        id="timestamp"
+                        onChange={handleFieldChange}
+                        required autoFocus
+                        className="form-control"
+                        value={article.timestamp} />
+                </div>
+            </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Title:</label>
