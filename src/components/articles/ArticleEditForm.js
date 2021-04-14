@@ -4,7 +4,7 @@ import { getArticleById, updateArticle } from "../../modules/ArticleManager";
 import "./ArticleForm.css";
 
 export const ArticleEditForm = () => {
-    const [article, setArticle] = useState({title: "", url: "", synopsis: "", timestamp: "", userId: 0});
+    const [article, setArticle] = useState({title: "", url: "", synopsis: "", timestamp: "", userId: ""});
     const [isLoading, setIsLoading] = useState(false);
 
     const {articleId} = useParams();
