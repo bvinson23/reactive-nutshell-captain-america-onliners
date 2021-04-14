@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import EventManager from '../../modules/EventManager';
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ name: "", date: "", location: "", userId: parseInt(sessionStorage.getItem("nutshell_user")) });
+    const [event, setEvent] = useState({ name: "", date: "", location: "", zipcode: "", userId: parseInt(sessionStorage.getItem("nutshell_user")) });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -12,7 +12,7 @@ const EventForm = props => {
     }
     const constructNewEvent = evt => {
         evt.preventDefault();
-        if (event.name === "" || event.date === "" || event.location === "") {
+        if (event.name === "" || event.date === "" || event.location === "" || event.zipcode === "") {
             window.alert("Fill all fields to proceed");
         } else {
             setIsLoading(true);
@@ -55,7 +55,15 @@ const EventForm = props => {
                             id="location"
                             value={event.location}
                         />
-
+                        <label htmlFor="zip">Zipcode</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="zipcode"
+                            value={event.zipcode}
+                        />
                     </div>
 
                     <div className="alignRight">
