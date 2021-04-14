@@ -7,4 +7,11 @@ export const getMessageById = (messageId) => {
 
 export const getAllMessages = () => {
     return fetch(`${remoteURL}/messages`)
+        .then(res => res.json())
+}
+
+export const deleteMessage = (id) => {
+    return fetch(`${remoteURL}/messages/${id}`, {
+        method: "DELETE"
+    }).then(res => res.json())
 }

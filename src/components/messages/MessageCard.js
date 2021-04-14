@@ -1,10 +1,10 @@
 import React from "react";
 
-export const MessageCard = () => {
+export const MessageCard = ({ message }) => {
     return (
         <>
             <div className="chat-message">
-                <p>Hello world!</p>
+                <p>{message.chat}</p>
             </div>
         </>
     )
