@@ -1,13 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import { Route} from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
 import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
+import { ArticleEditForm } from "./articles/ArticleEditForm";
 import { FriendList } from "./friends/FriendList";
 
 export const ApplicationViews = (props) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
+
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("nutshell_user", JSON.stringify(user))
+    setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null)
+  }
   const setUser = props.setUser;
   const hasUser = true;
   return (
@@ -16,6 +23,11 @@ export const ApplicationViews = (props) => {
       <Route exact path="/">
         {/* Render the component for news articles */}
         <ArticleList />
+      </Route>
+
+      <Route path="/:articleId(\d+)/edit">
+        {/* Render the component for editing news articles */}
+        <ArticleEditForm />
       </Route>
 
       <Route path="/create">
