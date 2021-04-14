@@ -66,7 +66,38 @@ export const ArticleEditForm = () => {
                             id="title"
                             value={article.title}
                         />
-{/*------------THIS IS WHERE I LEFT OFF!!!--------------*/}
+                        <label htmlFor="title">Title:</label>
+                    </div>
+
+                    <div className="formgrid">
+                        <input
+                            type="text"
+                            id="synopsis"
+                            onChange={handleFieldChange}
+                            required autoFocus
+                            className="form-control"
+                            value={article.synopsis} />
+                        <label htmlFor="synopsis">Synopsis:</label>
+                    </div>
+
+                    <div className="formgrid">
+                        <input
+                            type="text"
+                            id="url"
+                            onChange={handleFieldChange}
+                            required autoFocus
+                            className="form-control"
+                            value={article.url} />
+                        <label htmlFor="url">URL:</label>
+                    </div>
+
+                    <div className="alignRight">
+                        <button
+                            type="button" disabled={isLoading}
+                            onClick={updateExistingArticle}
+                            className="btn btn-primary">
+                                Submit
+                            </button>
                     </div>
                 </fieldset>
             </form>

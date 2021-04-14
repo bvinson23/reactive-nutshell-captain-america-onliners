@@ -5,6 +5,7 @@ import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
 import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
+import { ArticleEditForm } from "./articles/ArticleEditForm";
 import { FriendList } from "./friends/FriendList";
 
 export const ApplicationViews = (props) => {
@@ -16,6 +17,11 @@ export const ApplicationViews = (props) => {
       <Route exact path="/">
         {/* Render the component for news articles */}
         <ArticleList />
+      </Route>
+
+      <Route path="/:articleId(\d+)/edit">
+        {/* Render the component for editing news articles */}
+        <ArticleEditForm />
       </Route>
 
       <Route path="/create">

@@ -25,3 +25,13 @@ export const addArticle = (newArticle) => {
         body: JSON.stringify(newArticle)
     }).then(res => res.json())
 }
+
+export const updateArticle = (editedArticle) => {
+    return fetch(`${remoteURL}/articles/${editedArticle.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedArticle)
+    }).then(res => res.json());
+}
