@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MessageCard } from "./MessageCard";
-import { getAllMessages, getMessageById } from '../../modules/MessageManager';
+import { deleteMessage, getAllMessages, getMessageById } from '../../modules/MessageManager';
 import { useHistory } from 'react-router-dom';
 
 export const MessageList = () => {
@@ -13,6 +13,11 @@ export const MessageList = () => {
         });
     };
 
+    const handleDeleteMessage = id => {
+        deleteMessage(id)
+            .then(() => getAllMessages().then(setMessages));
+    };
+
     useEffect(() => {
         getMessages();
     }, []);
@@ -20,7 +25,10 @@ export const MessageList = () => {
     return (
         <div className="container-cards">
             {messages.map(message => 
-                <MessageCard key={message.id} message={message} />
+                <MessageCard 
+                    key={message.id} 
+                    message={message} 
+                    handleDeleteMessage={handleDeleteMessage} />
                 )}
         </div>
     );
