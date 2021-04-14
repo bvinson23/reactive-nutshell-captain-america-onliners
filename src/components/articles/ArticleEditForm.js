@@ -4,7 +4,7 @@ import { getArticleById, updateArticle } from "../../modules/ArticleManager";
 import "./ArticleForm.css";
 
 export const ArticleEditForm = () => {
-    const [article, setArticle] = useState({});
+    const [article, setArticle] = useState({title: "", url: "", synopsis: "", timestamp: "", userId: 0});
     const [isLoading, setIsLoading] = useState(false);
 
     const {articleId} = useParams();
@@ -56,6 +56,17 @@ export const ArticleEditForm = () => {
     return (
         <>
             <form>
+                <fieldset>
+                    <div>
+                        <input
+                            type="hidden"
+                            id="timestamp"
+                            onChange={handleFieldChange}
+                            required autoFocus
+                            className="form-control"
+                            value={article.timestamp} />
+                    </div>
+                </fieldset>
                 <fieldset>
                     <div className="formgrid">
                         <input
