@@ -73,6 +73,15 @@ const EventEditForm = props=>{
                             id="location"
                             value={event.location}
                         />
+                        <label htmlFor="zip">Zipcode</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="zipcode"
+                            value={event.zipcode}
+                        />
                         
 
                     </div>
