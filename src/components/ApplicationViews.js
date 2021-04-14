@@ -3,7 +3,9 @@ import { Route, Redirect } from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
+import { TaskList } from "./task/TaskList"
 export const ApplicationViews = (props) => {
+  console.log()
   const hasUser = props.hasUser;
   const setUser = props.setUser;
   return (
@@ -19,7 +21,7 @@ export const ApplicationViews = (props) => {
         {/* Render the component for the messages */}
       </Route>
       <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
+        <TaskList />
       </Route>
       {/* Events are down here*/}
       <Route
