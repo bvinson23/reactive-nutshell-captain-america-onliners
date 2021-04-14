@@ -6,6 +6,8 @@ import EventEditForm from "./event/EventEditForm";
 import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
 import { FriendList } from "./friends/FriendList";
+import {AddFriendCard} from './friends/AddFriendCard'
+import { AddFriendList } from "./friends/AddFriendList";
 
 export const ApplicationViews = (props) => {
   const setUser = props.setUser;
@@ -22,8 +24,12 @@ export const ApplicationViews = (props) => {
         {/* Render the component for creating a new article */}
         <ArticleForm />
       </Route>
-      <Route path="/friends">
+      <Route exact path="/friends">
         <FriendList />
+        {/* Render the component for list of friends */}
+      </Route>
+      <Route path="/friends/add">
+        <AddFriendList />
         {/* Render the component for list of friends */}
       </Route>
       <Route path="/messages">
