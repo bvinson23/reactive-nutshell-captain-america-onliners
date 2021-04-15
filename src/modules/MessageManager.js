@@ -1,3 +1,6 @@
+// Module to handle all fetch calls for messages
+// Author: Brandon Vinson
+
 const remoteURL = "http://localhost:8088"
 
 export const getMessageById = (messageId) => {
