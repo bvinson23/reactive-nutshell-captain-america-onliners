@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {FriendCard} from "./FriendCard"
 import {deleteFriend, getAllFriends} from '../../modules/FriendManager'
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 
 export const FriendList = () =>{
     const history = useHistory();
@@ -15,7 +15,7 @@ export const FriendList = () =>{
         const currentUser =  sessionStorage.getItem("nutshell_user")
         return getAllFriends(currentUser).then(friendsFromAPI =>{
             setFriends(friendsFromAPI)
-            console.log(friends);
+          
         });
     };
     useEffect(() =>{
@@ -24,13 +24,19 @@ export const FriendList = () =>{
 
     return  (
         <div className= "container-cards">
-            
-                {console.log(friends)}
-        {friends.map(friend => 
+            <h2 className="friends_list">Friends List</h2>
+            <Link to={`/friends/add`}>
+                        <button className="addFriendButton">Add A Friend</button>
+                    </Link>
+               
+        {friends.map(friend => {
+          if (friend.userId != parseInt(sessionStorage.getItem("nutshell_user")))
+          return (
             <FriendCard
             key={friend.id}
             friend={friend}
-            handleDeleteFriend={handleDeleteFriend} />)}
+            handleDeleteFriend={handleDeleteFriend} />)
+        })}
         </div>
     )
 }

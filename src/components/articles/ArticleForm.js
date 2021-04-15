@@ -1,3 +1,6 @@
+// Component to hold the form to create an article
+// Author: Brandon Vinson
+
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { addArticle, getAllArticles } from "../../modules/ArticleManager";
