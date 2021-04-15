@@ -22,8 +22,6 @@ export const getTaskById = (id) => {
       .then(result => result.json())
   }
 
-
-
   export const completeTask = (completedTask) => {
     completedTask.isCompleted = true
     return fetch(`${remoteURL}/tasks/${completedTask.id}`, {
@@ -35,6 +33,15 @@ export const getTaskById = (id) => {
       }).then((data) => data.json());
     };
 
+    export const addTask = (newTask) => {
+        return fetch(`${remoteURL}/tasks`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTask)
+        }).then(res => res.json())
+    };
 
 
 //   export const completeTask = (id) => {
