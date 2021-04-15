@@ -11,11 +11,8 @@ import {AddFriendCard} from './friends/AddFriendCard'
 import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
 import { MessageEditForm } from "./messages/MessageEditForm";
-
-
 export const ApplicationViews = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
-
   const setAuthUser = (user) => {
     sessionStorage.setItem("nutshell_user", JSON.stringify(user))
     setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null)
@@ -24,17 +21,14 @@ export const ApplicationViews = (props) => {
   const hasUser = true;
   return (
     <>
-
       <Route exact path="/">
         {/* Render the component for news articles */}
         <ArticleList />
       </Route>
-
       <Route path="/:articleId(\d+)/edit">
         {/* Render the component for editing news articles */}
         <ArticleEditForm />
       </Route>
-
       <Route path="/create">
         {/* Render the component for creating a new article */}
         <ArticleForm />
@@ -43,19 +37,14 @@ export const ApplicationViews = (props) => {
         <FriendList />
         {/* Render the component for list of friends */}
       </Route>
-
       <Route path="/friends/add">
         <AddFriendList />
         {/* Render the component for list of friends */}
       </Route>
-      <Route path="/messages">
-
       <Route exact path="/messages">
-
         {/* Render the component for the messages */}
         <MessageList />
       </Route>
-
       <Route path="/messages/:messageId(\d+)/edit">
         <MessageEditForm />
       </Route>
@@ -69,20 +58,17 @@ export const ApplicationViews = (props) => {
         render={props => {
           return <EventList {...props} />
         }} />
-      
       <Route
         path="/events/new"
         render={(props) => {
           return <EventForm {...props} />
         }} />
-      
       <Route exact
         path="/events/:eventId(\d+)/edit"
         render={(props) => {
           if (hasUser) {
             return <EventEditForm {...props} />
-          }
-        }} />
+          }}} />
     </>
   )
 }
