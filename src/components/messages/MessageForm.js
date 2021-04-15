@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { addMessage } from "../../modules/MessageManager";
 
-export const MessageForm = () => {
+export const MessageForm = ({ message, handleClickSaveMessage, handleFieldChange }) => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
-    const [message, setMessage] = useState({ chat: "", userId: currentUser});
+    // const [message, setMessage] = useState({ chat: "", userId: currentUser});
     const history = useHistory();
 
-    const handleFieldChange = (event) => {
-        const newMessage = { ...message }
-        newMessage[event.target.id] = event.target.value
-        setMessage(newMessage)
-    }
-
-    const handleClickSaveMessage = (event) => {
-        event.preventDefault()
-
-        addMessage(message)
-            .then(() => history.push("/messages"))
-    }
+    // const handleFieldChange = (event) => {
+    //     const newMessage = { ...message }
+    //     newMessage[event.target.id] = event.target.value
+    //     setMessage(newMessage)
+    // }
 
     return (
         <section className="section-content">
