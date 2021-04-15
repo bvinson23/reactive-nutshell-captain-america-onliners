@@ -22,6 +22,7 @@ export default {
         }).then(data => data.json())
     },
     updateEvent(editedEvent) {
+        console.log(editedEvent)
         return fetch(`${remoteURL}/events/${editedEvent.id}`, {
           method: "PUT",
           headers: {
