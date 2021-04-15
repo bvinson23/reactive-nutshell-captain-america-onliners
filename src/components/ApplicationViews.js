@@ -8,6 +8,7 @@ import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleEditForm } from "./articles/ArticleEditForm";
 import { FriendList } from "./friends/FriendList";
 import { MessageList } from "./messages/MessageList";
+import { MessageEditForm } from "./messages/MessageEditForm";
 
 export const ApplicationViews = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
@@ -39,9 +40,13 @@ export const ApplicationViews = (props) => {
         <FriendList />
         {/* Render the component for list of friends */}
       </Route>
-      <Route path="/messages">
+      <Route exact path="/messages">
         {/* Render the component for the messages */}
         <MessageList />
+      </Route>
+
+      <Route path="/messages/:messageId(\d+)/edit">
+        <MessageEditForm />
       </Route>
       <Route path="/tasks">
         {/* Render the component for the user's tasks */}

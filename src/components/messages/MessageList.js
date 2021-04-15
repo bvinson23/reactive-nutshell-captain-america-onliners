@@ -1,3 +1,6 @@
+// Component to hold the list of messages
+// Author: Brandon Vinson
+
 import React, { useEffect, useState } from 'react';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";

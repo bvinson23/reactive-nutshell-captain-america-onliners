@@ -1,3 +1,6 @@
+// Module to handle all fetch calls for messages
+// Author: Brandon Vinson
+
 const remoteURL = "http://localhost:8088"
 
 export const getMessageById = (messageId) => {
@@ -24,4 +27,14 @@ export const addMessage = (newMessage) => {
         },
         body: JSON.stringify(newMessage)
     }).then(res => res.json())
+}
+
+export const updateMessage = (editedMessage) => {
+    return fetch(`${remoteURL}/messages/${editedMessage.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedMessage)
+    }).then(res => res.json());
 }
