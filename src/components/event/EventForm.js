@@ -45,7 +45,6 @@ const EventForm = props => {
                             id="date"
                             value={event.date}
                         />
-                        
                         <label htmlFor="location">Location</label>
                         <input
                             type="text"
