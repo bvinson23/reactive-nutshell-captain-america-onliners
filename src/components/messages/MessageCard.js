@@ -1,3 +1,6 @@
+// Component to hold an individual Message
+// Author: Brandon Vinson
+
 import React from "react";
 import { Link } from "react-router-dom";
 

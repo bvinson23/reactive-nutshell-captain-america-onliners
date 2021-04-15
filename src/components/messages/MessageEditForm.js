@@ -1,3 +1,6 @@
+// Component to hold the form to edit a single message
+// Author: Brandon Vinson
+
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { getMessageById, updateMessage } from "../../modules/MessageManager";
