@@ -1,4 +1,5 @@
 const remoteURL = "http://localhost:8088"
+const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
 export const getFriendById = (friendId) =>{
     return fetch (`${remoteURL}friends/${friendId}?_expand=user`)
@@ -9,6 +10,13 @@ export const potentialFriends = () =>{
     return fetch (`${remoteURL}/users/?_embed=friends`)
     .then(response => response.json())
 }
+
+export const getFriends = () =>{
+    let id = parseInt(currentUser());
+    return fetch(`${remoteURL}/friends?currentUserId=${id}&_expand=user`)
+    .then(res => res.json())
+}
+
 
 export const getAllFriends = (id) =>{
 

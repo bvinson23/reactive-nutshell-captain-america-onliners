@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { potentialFriends, addFriend } from '../../modules/FriendManager'
+import { potentialFriends, addFriend, getFriends } from '../../modules/FriendManager'
 import { useHistory } from 'react-router-dom'
 import { AddFriendCard } from './AddFriendCard';
 import { SearchBar } from './FriendSearch'
@@ -10,10 +10,11 @@ export const AddFriendList = (props) => {
     const [input, setInput] = useState('');
     const [friendList, setFriendList] = useState();
     const [friendListDefault, setFriendListDefault] = useState();
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
     const handleAddFriend = id => {
         const newUserObject = {
             "userId": id,
-            "currentUserId": parseInt(sessionStorage.getItem("nutshell_user"))
+            "currentUserId": currentUser
         }
         addFriend(newUserObject)
             .then(() => potentialFriends().then(setFriends));
@@ -38,6 +39,7 @@ export const AddFriendList = (props) => {
         setInput(input);
         setFriendList(filtered)
     }
+
     return (
         <div className="container-cards">
             <SearchBar
@@ -45,12 +47,13 @@ export const AddFriendList = (props) => {
                 onChange={updateInput}
             />
             {users.map(user => {
-                if (user.id != parseInt(sessionStorage.getItem("nutshell_user")) && (user.friends.currentUserId != parseInt(sessionStorage.getItem("nutshell_user"))))
-                    return (
+                console.log(user.friends)
+                if (user.id != currentUser && (user.friends.currentUserId != currentUser)){
+                return (
                         <AddFriendCard
                             key={user.id}
                             user={user}
-                            handleAddFriend={handleAddFriend} />)
+                            handleAddFriend={handleAddFriend} />)}
             })}
         </div>
     )

@@ -9,8 +9,6 @@ export const SearchBar = () => {
      key="random1"
      value={keyword}
      placeholder={"search friends"}
-     onChange={(e) => setKeyword(e.target.value)
-    console.log(setKeyword)}
-    />
+     onChange={(e) => setKeyword(e.target.value)}/>
   );
 }
