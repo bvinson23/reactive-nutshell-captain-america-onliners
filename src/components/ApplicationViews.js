@@ -10,6 +10,7 @@ import { FriendList } from "./friends/FriendList";
 import {AddFriendCard} from './friends/AddFriendCard'
 import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
+import { MessageEditForm } from "./messages/MessageEditForm";
 
 
 export const ApplicationViews = (props) => {
@@ -42,13 +43,21 @@ export const ApplicationViews = (props) => {
         <FriendList />
         {/* Render the component for list of friends */}
       </Route>
+
       <Route path="/friends/add">
         <AddFriendList />
         {/* Render the component for list of friends */}
       </Route>
       <Route path="/messages">
+
+      <Route exact path="/messages">
+
         {/* Render the component for the messages */}
         <MessageList />
+      </Route>
+
+      <Route path="/messages/:messageId(\d+)/edit">
+        <MessageEditForm />
       </Route>
       <Route path="/tasks">
         {/* Render the component for the user's tasks */}

@@ -1,3 +1,6 @@
+// Component to contain the form to edit an article
+// Author: Brandon Vinson
+
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { getArticleById, updateArticle } from "../../modules/ArticleManager";
