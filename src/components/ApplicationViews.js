@@ -1,20 +1,31 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom"
+import { Route} from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
 import { TaskList } from "./task/TaskList"
+import { ArticleList } from "./articles/ArticleList";
+import { ArticleForm } from "./articles/ArticleForm";
+import { FriendList } from "./friends/FriendList";
+
 export const ApplicationViews = (props) => {
-  console.log()
-  const hasUser = props.hasUser;
+
   const setUser = props.setUser;
+  const hasUser = true;
   return (
     <>
 
       <Route exact path="/">
         {/* Render the component for news articles */}
+        <ArticleList />
+      </Route>
+
+      <Route path="/create">
+        {/* Render the component for creating a new article */}
+        <ArticleForm />
       </Route>
       <Route path="/friends">
+        <FriendList />
         {/* Render the component for list of friends */}
       </Route>
       <Route path="/messages">
@@ -37,13 +48,11 @@ export const ApplicationViews = (props) => {
           return <EventForm {...props} />
         }} />
       
-      <Route
+      <Route exact
         path="/events/:eventId(\d+)/edit"
-        render={props => {
+        render={(props) => {
           if (hasUser) {
             return <EventEditForm {...props} />
-          } else {
-            return <Redirect to="/login" />
           }
         }} />
     </>

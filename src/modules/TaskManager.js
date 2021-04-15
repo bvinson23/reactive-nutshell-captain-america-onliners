@@ -16,7 +16,31 @@ export const getTaskById = (id) => {
       .then(result => result.json)
   }
 
-  export const deleteTask = () => {
-      return fetch(`${remoteURL}/tasks`)
+  export const deleteTask = (id) => {
+      return fetch(`${remoteURL}/tasks/${id}`,{
+          method: "DELETE"})
       .then(result => result.json())
   }
+
+
+
+  export const completeTask = (completedTask) => {
+    completedTask.isCompleted = true
+    return fetch(`${remoteURL}/tasks/${completedTask.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(completedTask),
+      }).then((data) => data.json());
+    };
+
+
+
+//   export const completeTask = (id) => {
+//       return fetch(`${remoteURL}/task/${id}`,{
+//           method: "PUT",
+//           headers: {"Content-Type": "application/json"},
+//           body: JSON.stringify(id)})
+//       .then(result => result.json())
+//   }

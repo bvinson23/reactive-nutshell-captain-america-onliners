@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-//!need to import task card once finished
-import { getAllTasks, deleteTask } from '../../modules/TaskManager';
+import { getAllTasks, deleteTask, completeTask} from '../../modules/TaskManager';
 import { useHistory } from 'react-router-dom'
 import { TaskCard } from "./TaskCard"
+
 
 export const TaskList = () => {
 
@@ -12,9 +12,16 @@ export const TaskList = () => {
     const history = useHistory();
 
 
+    //usestate, setstate, 
+
     //?this will give us the ability to delete with in this function
     const handleDeleteTask = id => {
         deleteTask(id)
+        .then(() => getAllTasks().then(setTasks))
+    };
+
+    const handleCompleteTask = id => {
+        completeTask(id)
         .then(() => getAllTasks().then(setTasks))
     };
 
@@ -36,13 +43,19 @@ export const TaskList = () => {
       return (
           <>
           <section className="taskSectionContent"></section>
-          <h3>Hello</h3>
+          <h3>Your Tasks</h3>
           <div className="taskContainerCards">
-          {tasks.map(task =>
+          {tasks.filter(task => task.isCompleted === false).map(task =>
           <TaskCard
             key={task.id}
             task={task}
-            handleDeleteTask={handleDeleteTask} />)}
+            handleDeleteTask={handleDeleteTask} 
+            handleCompleteTask={handleCompleteTask}
+            />)}
+
+          </div>
+          <div className="TaskButtons">
+              <div></div>
           </div>
           </>      
           );
