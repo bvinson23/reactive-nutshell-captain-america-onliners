@@ -5,9 +5,11 @@ export const FriendCard = ({ friend, handleDeleteFriend }) => {
     const history = useHistory();
     return (
         <div className="card">
+                    
             <div className="card-content ">
                 <h3>
                     <span className="friendCardName">{friend.user.name}</span>
+                    <p className="friendCardEmail">{friend.user.email}</p>
 
                     <Link to={`/friends/${friend.id}`}>
                         <button>Details</button>

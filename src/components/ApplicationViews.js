@@ -7,8 +7,11 @@ import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleEditForm } from "./articles/ArticleEditForm";
 import { FriendList } from "./friends/FriendList";
+import {AddFriendCard} from './friends/AddFriendCard'
+import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
 import { MessageEditForm } from "./messages/MessageEditForm";
+
 
 export const ApplicationViews = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
@@ -36,11 +39,19 @@ export const ApplicationViews = (props) => {
         {/* Render the component for creating a new article */}
         <ArticleForm />
       </Route>
-      <Route path="/friends">
+      <Route exact path="/friends">
         <FriendList />
         {/* Render the component for list of friends */}
       </Route>
+
+      <Route path="/friends/add">
+        <AddFriendList />
+        {/* Render the component for list of friends */}
+      </Route>
+      <Route path="/messages">
+
       <Route exact path="/messages">
+
         {/* Render the component for the messages */}
         <MessageList />
       </Route>
