@@ -6,12 +6,12 @@ export const getFriendById = (friendId) =>{
 }
 
 export const potentialFriends = () =>{
-    return fetch (`${remoteURL}/users`)
+    return fetch (`${remoteURL}/users/?_embed=friends`)
     .then(response => response.json())
 }
 
 export const getAllFriends = (id) =>{
-    console.log("id",id)
+
    return fetch(`http://localhost:8088/friends/?currentUserId=${id}&_expand=user`)
    .then(response => response.json())
 }

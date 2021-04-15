@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { getFriendById, potentialFriends, addFriend } from '../../modules/FriendManager'
-import { useParams, useHistory } from 'react-router-dom'
-import userEvent from '@testing-library/user-event';
+import { potentialFriends, addFriend } from '../../modules/FriendManager'
+import { useHistory } from 'react-router-dom'
 import { AddFriendCard } from './AddFriendCard';
-export const AddFriendList = () => {
+import { SearchBar } from './FriendSearch'
+
+export const AddFriendList = (props) => {
     const history = useHistory();
     const [users, setFriends] = useState([]);
-
+    const [input, setInput] = useState('');
+    const [friendList, setFriendList] = useState();
+    const [friendListDefault, setFriendListDefault] = useState();
     const handleAddFriend = id => {
         const newUserObject = {
             "userId": id,
@@ -27,13 +30,28 @@ export const AddFriendList = () => {
     useEffect(() => {
         getPotentialFriends();
     }, [])
-        return (
-            <div className="container-cards">
-                {users.map(user =>
-                    <AddFriendCard
-                        key={user.id}
-                        user={user}
-                        handleAddFriend={handleAddFriend} />)}
-            </div>
-        )
+
+    const updateInput = async (input) => {
+        const filtered = friendListDefault.filter(friend => {
+            return friend.name.toLowerCase().includes(input.toLowerCase())
+        })
+        setInput(input);
+        setFriendList(filtered)
+    }
+    return (
+        <div className="container-cards">
+            <SearchBar
+                input={input}
+                onChange={updateInput}
+            />
+            {users.map(user => {
+                if (user.id != parseInt(sessionStorage.getItem("nutshell_user")) && (user.friends.currentUserId != parseInt(sessionStorage.getItem("nutshell_user"))))
+                    return (
+                        <AddFriendCard
+                            key={user.id}
+                            user={user}
+                            handleAddFriend={handleAddFriend} />)
+            })}
+        </div>
+    )
 }
