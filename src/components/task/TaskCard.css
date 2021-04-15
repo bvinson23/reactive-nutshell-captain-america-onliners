@@ -1,0 +1,8 @@
+.button{
+    width: 30px;
+}
+
+.TaskCard{
+    display: flex;
+    flex-direction: row;
+}

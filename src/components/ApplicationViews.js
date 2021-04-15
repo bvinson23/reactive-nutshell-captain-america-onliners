@@ -3,6 +3,7 @@ import { Route} from "react-router-dom"
 import EventList from "./event/EventList";
 import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
+import { TaskList } from "./task/TaskList"
 import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleEditForm } from "./articles/ArticleEditForm";
@@ -12,11 +13,13 @@ import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
 import { MessageEditForm } from "./messages/MessageEditForm";
 export const ApplicationViews = (props) => {
+
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
   const setAuthUser = (user) => {
     sessionStorage.setItem("nutshell_user", JSON.stringify(user))
     setIsAuthenticated(sessionStorage.getItem("nutshell_user") !== null)
   }
+
   const setUser = props.setUser;
   const hasUser = true;
   return (
@@ -49,7 +52,7 @@ export const ApplicationViews = (props) => {
         <MessageEditForm />
       </Route>
       <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
+        <TaskList />
       </Route>
       {/* Events are down here*/}
       <Route
