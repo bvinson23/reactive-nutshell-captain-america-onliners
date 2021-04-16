@@ -1,0 +1,29 @@
+.contentContainer{
+    border: 3px black solid;
+    border-radius: 10px;
+    margin: 5%;
+    padding: 3%;
+    background-color: #40a8c4;
+    box-shadow: 10px 5px 5px #d6a529;
+
+}
+
+.createTaskButton{
+    border: 0px;
+    border-radius: 3px;
+    background-color: #a2d5f2;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 10px 5px 5px #569cae;
+}
+
+.yourTasks{
+    font-size: 45px;
+}
+
+
+
+
+
+

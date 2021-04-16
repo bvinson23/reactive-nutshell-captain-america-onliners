@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 export const TaskForm = () => {
     const [task, setTask] = useState({ name: "", date: "" });
     //? doesnt allow for multiple clicks
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
     //! idk
     const history = useHistory();
@@ -21,7 +21,7 @@ export const TaskForm = () => {
 
     const handleAddTask = (evt) => {
         evt.preventDefault()
-        setIsLoading(true)
+        // setIsLoading(true)
         const taskName = task.name
         const taskDate = task.date
         if (taskName === "" || taskDate === "") {
@@ -48,6 +48,7 @@ export const TaskForm = () => {
                       id="name"
                       value={task.name}
                     />
+                    <label htmlFor="date">Completion Date</label>
                     <input
                       type="date"
                       required
@@ -67,7 +68,8 @@ export const TaskForm = () => {
                   </div>
                   <div className="alignRight">
                     <button
-                      type="button" disabled={isLoading}
+                      type="button" 
+                      // disabled={isLoading}
                       onClick={handleAddTask}
                       className="btn btn-primary"
                     >Submit</button>
