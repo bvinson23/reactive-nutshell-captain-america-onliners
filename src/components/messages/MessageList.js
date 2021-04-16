@@ -5,13 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, getMessageById, addMessage } from '../../modules/MessageManager';
-<<<<<<< HEAD
-import { useHistory, useParams } from 'react-router-dom';
-
-=======
 import { useHistory } from 'react-router-dom';
 import {addFriend} from '../../modules/FriendManager'
->>>>>>> main
 export const MessageList = () => {
     const handleAddFriend = id => {
         const newUserObject = {
