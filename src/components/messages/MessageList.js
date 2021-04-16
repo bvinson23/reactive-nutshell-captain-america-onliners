@@ -1,13 +1,25 @@
 // Component to hold the list of messages
-// Author: Brandon Vinson
+// Author: Brandon Vinson, Cody Jones
 
 import React, { useEffect, useState } from 'react';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, getMessageById, addMessage } from '../../modules/MessageManager';
+<<<<<<< HEAD
 import { useHistory, useParams } from 'react-router-dom';
 
+=======
+import { useHistory } from 'react-router-dom';
+import {addFriend} from '../../modules/FriendManager'
+>>>>>>> main
 export const MessageList = () => {
+    const handleAddFriend = id => {
+        const newUserObject = {
+            "userId": id,
+            "currentUserId": currentUser
+        }
+        addFriend(newUserObject)
+    }
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const [message, setMessage] = useState({ chat: "", userId: currentUser })
@@ -67,6 +79,7 @@ export const MessageList = () => {
                     <MessageCard 
                         key={message.id} 
                         message={message} 
+                        handleAddFriend={handleAddFriend}
                         handleDeleteMessage={handleDeleteMessage} />
                     )}
             </div>
