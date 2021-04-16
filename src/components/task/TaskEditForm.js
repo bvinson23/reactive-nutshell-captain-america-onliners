@@ -4,7 +4,7 @@ import { editTask, getTaskById,} from "../../modules/TaskManager" //!fix
 import { useHistory, useParams } from 'react-router-dom'
 
 export const TaskEditForm = () => {
-    const [task, setTask] = useState({ name: "" });
+    const [task, setTask] = useState({ name: "", date: ""});
     //doesnt allow for multiple clicks
     const [isLoading, setIsLoading] = useState(false);
 
@@ -30,6 +30,7 @@ export const TaskEditForm = () => {
             id: task.id,
             name: task.name,
             userId: task.userId,
+            date: task.date,
             isCompleted: task.isCompleted
         }
 
