@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* .animals {
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +12,8 @@
       border: 1px solid goldenrod;
   }
 
+=======
+>>>>>>> bcd9734ec09c1ea5a331a5f3604bddf74d382a68
   .card {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       transition: 0.3s;
@@ -75,4 +78,28 @@
 
   .section-content button:hover {
     background-color: darkblue;
+<<<<<<< HEAD
   } */
+=======
+  }
+  .article-cards{
+    display: flex;
+    flex-direction: column;
+    border-style: hidden;
+    margin-left: 34%;
+    width: 33%;
+  }
+  .articleCard__friend{
+    background-color: cornsilk;
+    font-style: italic;
+    border-style: hidden;
+    margin: 1em;
+    border-radius: 1em;
+  }
+  .articleCard{
+    background-color: rgb(192,198,200);
+    margin: 1em;
+    border-style: hidden;
+    border-radius: 1em;
+  }
+>>>>>>> bcd9734ec09c1ea5a331a5f3604bddf74d382a68

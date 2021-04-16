@@ -35,3 +35,9 @@ export const updateArticle = (editedArticle) => {
         body: JSON.stringify(editedArticle)
     }).then(res => res.json());
 }
+
+// Fetch call that gets articles by userId
+export const getArticleByUser = (id) => {
+    return fetch(`${remoteURL}/articles?userId=${id}&_expand=user`)
+        .then(res => res.json())
+}

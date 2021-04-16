@@ -12,7 +12,7 @@ export const potentialFriends = () =>{
 }
 
 export const getFriends = () =>{
-    let id = parseInt(currentUser());
+    let id = parseInt(currentUser);
     return fetch(`${remoteURL}/friends?currentUserId=${id}&_expand=user`)
     .then(res => res.json())
 }
