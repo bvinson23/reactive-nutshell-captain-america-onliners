@@ -10,6 +10,7 @@ import "./Article.css"
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const history = useHistory();
+    const currentUser = sessionStorage.getItem("nutshell_user")
 
     const getArticles = () => {
         return getAllArticles().then(articlesFromAPI => {
@@ -40,7 +41,8 @@ export const ArticleList = () => {
                     <Article 
                         key={article.id} 
                         article={article} 
-                        handleDeleteArticle={handleDeleteArticle} />)}
+                        handleDeleteArticle={handleDeleteArticle}
+                        currentUser={currentUser} />)}
             </div>
         </>
     );
