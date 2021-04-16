@@ -1,0 +1,20 @@
+form{
+margin: auto;
+margin-top: 10%;
+width: 60%;
+border-radius: 5px;
+padding: 3px;
+padding-left: 7px;
+padding-right: 7px;
+font-size: 23px;
+box-shadow: 10px 5px 5px #d6a529;
+background-color: #40a8c4;
+}
+
+.formgrid{
+    padding: 20px;
+}
+
+.alignRight{
+    padding: 20px;
+}

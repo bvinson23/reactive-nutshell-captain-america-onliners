@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllTasks, deleteTask, completeTask} from '../../modules/TaskManager';
 import { useHistory } from 'react-router-dom'
 import { TaskCard } from "./TaskCard"
+import "./TaskList.css"
 
 
 export const TaskList = () => {
@@ -21,10 +22,9 @@ export const TaskList = () => {
     };
 
     const handleCompleteTask = id => {
-        completeTask(id)
-        .then(() => getAllTasks().then(setTasks))
+        setTimeout(() => completeTask(id)
+        .then(() => getAllTasks().then(setTasks)), 1000)
     };
-
 
     //TODO not sure here
     const getTasks = () =>{
@@ -39,13 +39,12 @@ export const TaskList = () => {
         getTasks();
       }, []);
 
-      //!was told that classType wasnt usable, but classtype was?
       return (
           <>
-          
+          <div className="contentContainer">
           <section className="taskSectionContent"></section>
-          <h3>Your Tasks</h3>
-          <button type="button" classtype="btn" onClick={() => {history.push("/tasks/create")}}>Create Task</button>
+          <h3 className="yourTasks">Your Tasks</h3>
+          <button type="button" className="createTaskButton" onClick={() => {history.push("/tasks/create")}}>Create Task</button>
           <div className="taskContainerCards">
           {tasks.filter(task => task.isCompleted === false).map(task =>
           <TaskCard
@@ -58,6 +57,7 @@ export const TaskList = () => {
           </div>
           <div className="TaskButtons">
               <div></div>
+          </div>
           </div>
           </>      
           );

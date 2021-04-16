@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { editTask, getTaskById,} from "../../modules/TaskManager" //!fix
-// import "./TaskForm.css"
+import "./TaskForm.css"
 import { useHistory, useParams } from 'react-router-dom'
 
 export const TaskEditForm = () => {
