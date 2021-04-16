@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { } from "../../modules/TaskManager" //!fix
-import "./TaskForm.css"
+import { editTask, getTaskById,} from "../../modules/TaskManager" //!fix
+// import "./TaskForm.css"
 import { useHistory, useParams } from 'react-router-dom'
 
 export const TaskEditForm = () => {
-    const [task, setTask] = useState({ name: "" });
+    const [task, setTask] = useState({ name: "", date: ""});
     //doesnt allow for multiple clicks
     const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +21,7 @@ export const TaskEditForm = () => {
     };
 
     //? keeps the page from reloading (preventdefault)
-    const updateExistingTask = o => {
+    const editExistingTask = o => {
         o.preventDefault()
         setIsLoading(true);
 
@@ -29,18 +29,20 @@ export const TaskEditForm = () => {
         const editedTask = {
             id: task.id,
             name: task.name,
-            userId: task.userId
+            userId: task.userId,
+            date: task.date,
+            isCompleted: task.isCompleted
         }
 
         //! idk
-        updateTask(editedTask)
+        editTask(editedTask)
             .then(() => history.push("/tasks")
             )
         }
 
         //? runs once the page loads, allows the page to change dynamically?
         useEffect(() => {
-            getTaskById(TaskId)
+            getTaskById(taskId)
               .then(task => {
                 setTask(task);
                 setIsLoading(false);
@@ -62,11 +64,27 @@ export const TaskEditForm = () => {
                       id="name"
                       value={task.name}
                     />
+                    <input
+                      type="date"
+                      required
+                      className="form-control"
+                      onChange={handleFieldChange}
+                      id="date"
+                      value={task.date}
+                    />
+                    <input
+                      type="hidden"
+                      required
+                      className="form-control"
+                      onChange={handleFieldChange}
+                      id="isNotCompleted"
+                      value={task.isCompleted = false}
+                    />
                   </div>
                   <div className="alignRight">
                     <button
                       type="button" disabled={isLoading}
-                      onClick={updateExistingTask}
+                      onClick={editExistingTask}
                       className="btn btn-primary"
                     >Submit</button>
                   </div>

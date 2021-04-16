@@ -5,6 +5,7 @@ import EventForm from './event/EventForm';
 import EventEditForm from "./event/EventEditForm";
 import { TaskList } from "./task/TaskList"
 import { TaskForm } from "./task/TaskForm";
+import { TaskEditForm } from "./task/TaskEditForm"
 import { ArticleList } from "./articles/ArticleList";
 import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleEditForm } from "./articles/ArticleEditForm";
@@ -13,6 +14,7 @@ import {AddFriendCard} from './friends/AddFriendCard'
 import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
 import { MessageEditForm } from "./messages/MessageEditForm";
+
 export const ApplicationViews = (props) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
@@ -57,6 +59,9 @@ export const ApplicationViews = (props) => {
       </Route>
       <Route path="/tasks/create">
         <TaskForm />
+      </Route>
+      <Route path="/tasks/:taskId(\d+)/edit">
+        <TaskEditForm />
       </Route>
       {/* Events are down here*/}
       <Route

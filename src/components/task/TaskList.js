@@ -39,13 +39,13 @@ export const TaskList = () => {
         getTasks();
       }, []);
 
-
+      //!was told that classType wasnt usable, but classtype was?
       return (
           <>
           
           <section className="taskSectionContent"></section>
           <h3>Your Tasks</h3>
-          <button type="button" classType="btn" onClick={() => {history.push("/tasks/create")}}>Create Task</button>
+          <button type="button" classtype="btn" onClick={() => {history.push("/tasks/create")}}>Create Task</button>
           <div className="taskContainerCards">
           {tasks.filter(task => task.isCompleted === false).map(task =>
           <TaskCard
