@@ -1,25 +1,17 @@
 // Component to hold the list of messages
-// Author: Brandon Vinson, Cody Jones
+// Author: Brandon Vinson
 
 import React, { useEffect, useState } from 'react';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, getMessageById, addMessage } from '../../modules/MessageManager';
 import { useHistory } from 'react-router-dom';
-import {addFriend} from '../../modules/FriendManager'
+
 export const MessageList = () => {
-    const handleAddFriend = id => {
-        const newUserObject = {
-            "userId": id,
-            "currentUserId": currentUser
-        }
-        addFriend(newUserObject)
-    }
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const [message, setMessage] = useState({ chat: "", userId: currentUser })
     const [messages, setMessages] = useState([]);
-    const [users, setUsers] = useState([]);
     const history = useHistory();
 
     const getMessages = () => {
@@ -35,22 +27,6 @@ export const MessageList = () => {
 
     const handleFieldChange = (event) => {
         const newMessage = { ...message }
-        let selectedVal = event.target.value;
-
-        if (selectedVal.startsWith(`@`)) {
-            let regex = /(?<=\@)(.*?)(?=\s)/;
-
-            let parsedName = selectedVal.match(regex);
-
-            if (parsedName !== null) {
-                parsedName = parsedName[0].replace(/_/g, " ")
-                users.forEach(user => {
-                    if (parsedName === user.name && user.id !== currentUser) {
-                        newMessage.recipientId = user.id;
-                    }
-                })
-            }
-        }
         newMessage[event.target.id] = event.target.value
         setMessage(newMessage)
     }
@@ -74,7 +50,6 @@ export const MessageList = () => {
                     <MessageCard 
                         key={message.id} 
                         message={message} 
-                        handleAddFriend={handleAddFriend}
                         handleDeleteMessage={handleDeleteMessage} />
                     )}
             </div>
