@@ -29,7 +29,8 @@ export const TaskEditForm = () => {
         const editedTask = {
             id: task.id,
             name: task.name,
-            userId: task.userId
+            userId: task.userId,
+            isCompleted: task.isCompleted
         }
 
         //! idk
@@ -69,6 +70,14 @@ export const TaskEditForm = () => {
                       onChange={handleFieldChange}
                       id="date"
                       value={task.date}
+                    />
+                    <input
+                      type="hidden"
+                      required
+                      className="form-control"
+                      onChange={handleFieldChange}
+                      id="isNotCompleted"
+                      value={task.isCompleted = false}
                     />
                   </div>
                   <div className="alignRight">
