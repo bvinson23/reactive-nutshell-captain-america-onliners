@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const SearchBar = () => {
-    const [keyword,setKeyword] = useState()
-  const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
-  return (
-    <input 
-     style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"search friends"}
-     onChange={(e) => setKeyword(e.target.value)}/>
-  );
-}
+export const SearchBar =({ handleAddFriend, search }) => {
+    return (
+      <div className="SearchBox">
+        <h3>{search.name}</h3>
+        <button type="button" className="searchbutton" onClick={() => handleAddFriend(search.id)}>Add Friend</button>
+      </div>
+
+    );
+  }
+
