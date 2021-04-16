@@ -3,19 +3,33 @@
 
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { deleteArticle, getAllArticles, getArticleById } from "../../modules/ArticleManager";
+import { deleteArticle, getAllArticles, getArticleByUser } from "../../modules/ArticleManager";
+import { getFriends } from "../../modules/FriendManager";
 import { Article } from "./Article"
 import "./Article.css"
 
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const history = useHistory();
-    const currentUser = sessionStorage.getItem("nutshell_user")
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const getArticles = () => {
-        return getAllArticles().then(articlesFromAPI => {
-            setArticles(articlesFromAPI);
-        });
+        let userArticles = [];
+        return getFriends(currentUser)
+            .then(res => {
+                res.forEach(friend => {
+                    getArticleByUser(friend.user.id)
+                        .then(response => {
+                            userArticles = userArticles.concat(response)
+                        })
+                        .then(() => getArticleByUser(currentUser)
+                            .then(article => {
+                                let articles = []
+                                articles = userArticles.concat(article)
+                                setArticles(articles)
+                            }))
+                })
+            })
     };
 
     const handleDeleteArticle = id => {
