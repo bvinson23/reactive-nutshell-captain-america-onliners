@@ -77,3 +77,8 @@
   .section-content button:hover {
     background-color: darkblue;
   }
+
+  .article-cards {
+    display: flex;
+    flex-direction: column;
+  }
