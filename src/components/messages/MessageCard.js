@@ -1,15 +1,21 @@
 // Component to hold an individual Message
-// Author: Brandon Vinson
+// Author: Brandon Vinson, Cody Jones
 
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const MessageCard = ({ message, handleDeleteMessage }) => {
+
+export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend }) => {
+   
     return (
         <>
             <div className="chat-message">
                 <p>{message.user.name} said, "{message.chat}"</p>
                 <div className="button-box">
+                    <button type="button" onClick={() => {
+                    if (window.confirm(`Do you want to add ${message.user.name} as a friend ?`)) {
+                         (handleAddFriend(message.user.id))} 
+                         else {}}}> Add {message.user.name} as a Friend</button>
                     <Link to={`/messages/${message.id}/edit`}>
                         <button type="button">
                             Edit
