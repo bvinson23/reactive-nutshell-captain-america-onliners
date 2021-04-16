@@ -1,5 +1,6 @@
 // Component to contain a single article
 // Author: Brandon Vinson
+// Minor touch-ups: Carter Culkin
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -12,7 +13,9 @@ export const Article = ({ article, handleDeleteArticle, currentUser }) => {
                 <>
                     <article className="articleCard">
                         <div className="card-content">
-                            <h3>{article.title}-{article.user.name}</h3>
+                            <h3>{article.title}</h3>
+                            <h9>You posted this</h9>
+                            <p></p>
                             <p>{article.synopsis}</p>
                             <p>{article.timestamp}</p>
                             <Link to={`/${article.id}/edit`}>
@@ -28,13 +31,16 @@ export const Article = ({ article, handleDeleteArticle, currentUser }) => {
                 <>
                     <article className="articleCard__friend">
                         <div className="card-content">
-                            <h3>{article.title}-{article.user.name}</h3>
+                            <h3>{article.title}</h3>
+                            <h9>Posted by your friend {article.user.name}</h9>
+                            <p></p>
                             <p>{article.synopsis}</p>
                             <p>{article.timestamp}</p>
                             <p><a href={article.url}>{article.url}</a></p>
                         </div>
                     </article>
                 </>
+                
             }
         </>
     )
