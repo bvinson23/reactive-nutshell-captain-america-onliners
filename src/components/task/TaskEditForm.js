@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { } from "../../modules/TaskManager" //!fix
-import "./TaskForm.css"
+import { editTask, getTaskById,} from "../../modules/TaskManager" //!fix
+// import "./TaskForm.css"
 import { useHistory, useParams } from 'react-router-dom'
 
 export const TaskEditForm = () => {
@@ -21,7 +21,7 @@ export const TaskEditForm = () => {
     };
 
     //? keeps the page from reloading (preventdefault)
-    const updateExistingTask = o => {
+    const editExistingTask = o => {
         o.preventDefault()
         setIsLoading(true);
 
@@ -33,14 +33,14 @@ export const TaskEditForm = () => {
         }
 
         //! idk
-        updateTask(editedTask)
+        editTask(editedTask)
             .then(() => history.push("/tasks")
             )
         }
 
         //? runs once the page loads, allows the page to change dynamically?
         useEffect(() => {
-            getTaskById(TaskId)
+            getTaskById(taskId)
               .then(task => {
                 setTask(task);
                 setIsLoading(false);
@@ -62,11 +62,19 @@ export const TaskEditForm = () => {
                       id="name"
                       value={task.name}
                     />
+                    <input
+                      type="date"
+                      required
+                      className="form-control"
+                      onChange={handleFieldChange}
+                      id="date"
+                      value={task.date}
+                    />
                   </div>
                   <div className="alignRight">
                     <button
                       type="button" disabled={isLoading}
-                      onClick={updateExistingTask}
+                      onClick={editExistingTask}
                       className="btn btn-primary"
                     >Submit</button>
                   </div>

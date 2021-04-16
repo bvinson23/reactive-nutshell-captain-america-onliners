@@ -43,6 +43,16 @@ export const getTaskById = (id) => {
         }).then(res => res.json())
     };
 
+    export const editTask = (editTask) => {
+        //!fetch call is broken, after fixing this it should work.
+        return fetch(`${remoteURL}/tasks/${editTask.id}/edit`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editTask)
+        }).then(res => res.json())
+    };
 
 //   export const completeTask = (id) => {
 //       return fetch(`${remoteURL}/task/${id}`,{
