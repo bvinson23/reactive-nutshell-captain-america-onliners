@@ -1,3 +1,6 @@
+// Component to contain form for creating a new message
+// Author: Brandon Vinson
+
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
