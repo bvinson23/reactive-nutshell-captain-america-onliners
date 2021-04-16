@@ -76,10 +76,11 @@
     font-style: italic;
     border-style: hidden;
     margin: 1em;
-    
+    border-radius: 1em;
   }
   .articleCard{
     background-color: rgb(192,198,200);
     margin: 1em;
     border-style: hidden;
+    border-radius: 1em;
   }
