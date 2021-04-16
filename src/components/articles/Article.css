@@ -68,7 +68,7 @@
     display: flex;
     flex-direction: column;
     border-style: hidden;
-    margin-left: 50%;
+    margin-left: 34%;
     width: 33%;
   }
   .articleCard__friend{
@@ -76,6 +76,7 @@
     font-style: italic;
     border-style: hidden;
     margin: 1em;
+    
   }
   .articleCard{
     background-color: rgb(192,198,200);
