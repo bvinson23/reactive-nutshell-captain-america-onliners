@@ -2,10 +2,10 @@
 // Author: Brandon Vinson
 
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
-import { deleteMessage, getAllMessages, getMessageById, addMessage } from '../../modules/MessageManager';
-import { useHistory } from 'react-router-dom';
+import { deleteMessage, getAllMessages, addMessage } from '../../modules/MessageManager';
 
 export const MessageList = () => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
