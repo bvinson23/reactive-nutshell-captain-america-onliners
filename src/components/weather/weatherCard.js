@@ -1,7 +1,5 @@
 import React from "react";
 import "./weather.css"
-
-
 export const WeatherCard = ( {daily, dailyWeather} ) => {
     const weatherTime = (time) =>{
       let myDate = new Date(time*1000)
@@ -12,7 +10,6 @@ export const WeatherCard = ( {daily, dailyWeather} ) => {
       let temperature = (((kelvin-270)*9/5)+32).toFixed(0)
       return temperature
     }
-
          return (
         <>
       <section className="Weather">
@@ -22,7 +19,6 @@ export const WeatherCard = ( {daily, dailyWeather} ) => {
       <p> Today's Weather Is: High: {temperatureConverter(daily?.temp.max)}&deg; Low:{temperatureConverter(daily?.temp.min)}&deg;</p>
       <p> Conditions:{daily?.weather[0].description}</p>
       </section>
-
       </>
     );
   };

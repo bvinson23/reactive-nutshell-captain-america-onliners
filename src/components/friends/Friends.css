@@ -1,0 +1,25 @@
+/* Authors Preston and Carter*/
+.friends-container-cards{
+    display: flex;
+    flex-direction: column;
+    border-style: hidden;
+    margin-left: 34%;
+    width: 50%;
+}
+.friends_list{
+    margin-top: 2.8%;
+}
+.friends-container-cards button {
+    width: 9em;
+    border: solid black 1px;
+    margin-right: .2em;
+    height: 2em;
+}
+.friend-card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background: aliceblue;
+  margin-top: 1em;
+  flex: 0 1 24%;
+}

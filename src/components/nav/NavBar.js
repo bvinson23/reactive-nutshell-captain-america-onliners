@@ -1,8 +1,17 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./NavBar.css"
+const clearUser = () => {
+  sessionStorage.clear();
+}
+export const NavBar = () => {
+  const history = useHistory()
 
-export const NavBar = (props) => {
+  const handleLogout = () => {
+      clearUser();
+      history.push('/');
+  }
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
 
@@ -23,6 +32,9 @@ export const NavBar = (props) => {
           <Link className="nav-link" to="/events">Events</Link>
         </li>
       </ul>
+      <div className="nav-logout">
+        <span className="nav__logout" onClick={handleLogout}> Logout </span>
+        </div>
     </nav>
   )
 }

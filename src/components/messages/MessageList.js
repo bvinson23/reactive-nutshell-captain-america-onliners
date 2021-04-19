@@ -7,6 +7,7 @@ import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, addMessage } from '../../modules/MessageManager';
 import { addFriend, getFriends, potentialFriends } from '../../modules/FriendManager';
+import "./MessageCard.css"
 
 export const MessageList = () => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
@@ -116,7 +117,7 @@ export const MessageList = () => {
 
     return (
         <>
-            <div className="container-cards">
+            <div className="message-container-cards">
                 {messages.map(message => 
                     <MessageCard 
                         key={message.id}

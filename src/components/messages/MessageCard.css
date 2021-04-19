@@ -1,0 +1,53 @@
+/* Authors Preston and Carter*/
+button{
+    margin-top: 6px;
+    border: 0px black solid;
+    font-size: 23px;
+    background-color: #40a8c4;
+}
+
+.button-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonHolder{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.card-date{
+    font-size: 25px;
+}
+
+.card-name{
+    font-size:35px;
+} 
+.friendadd{
+    border: solid black 1px;
+    margin-left: .1em;
+    background-color: #6495ED ;
+}
+.messageEdit{
+    border: solid black 1px;
+    margin-right: .2em;
+    margin-left: 11.8em;
+    background-color: #6495ED ;
+}
+.messageDelete{
+    border: solid black 1px;
+    background-color: #6495ED ;
+}
+.message-container-cards{
+    width: 33em;
+    margin-left: 36%;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+.chat-input{
+    width: 33em;
+    margin-left: 36%;
+    
+}

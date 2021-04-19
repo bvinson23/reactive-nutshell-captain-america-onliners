@@ -1,3 +1,4 @@
+// Author: Cody Jones
 import React, { useState, useEffect } from 'react';
 import { potentialFriends, addFriend, getFriends, getAllFriends, deleteFriend } from '../../modules/FriendManager'
 import { useHistory, Link } from 'react-router-dom'

@@ -3,21 +3,22 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import "./MessageCard.css"
 
 export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend, checkForFriend }) => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
     return (
         <section className="messageCard">
-            <div className="message"> { checkForFriend(message) ? <>{message.user.name} </>:<Link to={"/messages"}><button type="button" className="article-btn" onClick={() => handleAddFriend(message.userId)}>{message.user.name}</button></Link>} : {message.chat}
+            <div className="message"> { checkForFriend(message) ? <>{message.user.name} </>:<Link to={"/messages"}><button type="button" className="friendadd" onClick={() => handleAddFriend(message.userId)}>{message.user.name}</button></Link>} : {message.chat}
             {message.userId === currentUser ? 
             <>
             <div className="message-btns">
                 <Link to={`/messages/${message.id}/edit`}>
-                <button type="button" className="message-btn">Edit</button>
+                <button type="button" className="messageEdit">Edit</button>
                 </Link>
                 <button type="button" 
-                        className="message-btn" 
+                        className="messageDelete" 
                         onClick={() => handleDeleteMessage(message.id)}>
                             Delete
                 </button>

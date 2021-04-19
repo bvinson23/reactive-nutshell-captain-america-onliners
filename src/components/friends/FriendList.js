@@ -1,8 +1,9 @@
+// Author: Cody Jones
 import React, { useEffect, useState } from 'react';
 import {FriendCard} from "./FriendCard"
 import {deleteFriend, getAllFriends} from '../../modules/FriendManager'
 import {useHistory,Link} from 'react-router-dom'
-
+import "./Friends.css"
 export const FriendList = () =>{
     const history = useHistory();
     const handleDeleteFriend = id =>{
@@ -23,7 +24,7 @@ export const FriendList = () =>{
     }, [])
 
     return  (
-        <div className= "container-cards">
+        <div className= "friends-container-cards">
             <h2 className="friends_list">Friends List</h2>
             <Link to={`/friends/add`}>
                         <button className="addFriendButton">Add A Friend</button>

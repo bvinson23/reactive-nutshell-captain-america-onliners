@@ -1,4 +1,6 @@
+// Author: Cody Jones, Carter Culkin
 import React, { useState, useEffect } from 'react';
+import "./Event.css"; 
 import { EventCard } from './EventCard';
 import {remove, getAll} from '../../modules/EventManager';
 import { WeatherCard } from '../weather/weatherCard'
@@ -68,8 +70,9 @@ export const EventList = (props) => {
                     New Event
                 </button>
             </section>
+
             {weather?.dt > 0 ? <WeatherCard daily={weather} dailyWeather={dailyWeather} /> : ""}
-            <div className="container-cards">
+            <div className="event-container-cards">
                 {events.map(event => {
                     if (event.userId === parseInt(sessionStorage.getItem("nutshell_user"))) {
                         return (
