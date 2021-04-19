@@ -49,7 +49,6 @@ export const Login = () => {
                     <h1>Nutshell</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             id="email"
                             className="form-control"

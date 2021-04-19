@@ -16,6 +16,7 @@ export const ArticleList = () => {
     const history = useHistory();
     const [weather, setWeather] = useState({})
     const [dailyWeather, setDailyWeather] = useState(false)
+
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const getArticles = () => {
@@ -92,6 +93,7 @@ export const ArticleList = () => {
                         handleDeleteArticle={handleDeleteArticle}
                         currentUser={currentUser}
                         getDailyWeather={getDailyWeather} />)}
+
             </div>
         </>
     );

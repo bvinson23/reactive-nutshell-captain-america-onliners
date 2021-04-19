@@ -10,7 +10,7 @@ export const AddFriendCard = ({user, handleAddFriend}) => {
    
     const history = useHistory();
     return (
-        <div className="card">
+        <div className="friend-card">
             <div className="card-content">
                 <h3>
                     <span className="userCardName">{user.name}</span>

@@ -1,4 +1,6 @@
+
 // Author: Cody Jones, Carter Culkin
+
 let weatherCollection = [];
 
 export const getWeather = (lat, lon ,api) => {
@@ -29,4 +31,5 @@ export const getCoordinatesforNashville = (city) => {
         coordinates.lon = parsedResponse.results[0].locations[0].latLng.lng;
         return coordinates;
     })
+
 }

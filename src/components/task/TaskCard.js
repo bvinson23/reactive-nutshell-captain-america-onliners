@@ -24,7 +24,7 @@ export const TaskCard = ({ task, handleDeleteTask, handleCompleteTask}) => {
           {task.date}
         </span></h3>
         </div>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" onClick={() => handleCompleteTask(task)}></input>
             <span class="slider round"></span>
         </label>

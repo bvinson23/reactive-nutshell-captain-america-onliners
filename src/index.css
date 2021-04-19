@@ -1,3 +1,4 @@
+/* Authors Preston and Carter*/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,5 +15,14 @@ code {
 
 #root{
   background-color: #ffc93c;
-  padding-bottom: 100%;
+  margin-bottom: 10em;
+}
+html{
+  background-color: #ffc93c;
+}
+.container--login{
+  margin-top: 19em;
+}
+.link--register{
+  margin-left: 20.3%;
 }

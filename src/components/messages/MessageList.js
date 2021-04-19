@@ -7,6 +7,7 @@ import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, getMessageById, addMessage } from '../../modules/MessageManager';
 import { useHistory } from 'react-router-dom';
 import {addFriend} from '../../modules/FriendManager'
+import "./MessageCard.css"
 export const MessageList = () => {
     const handleAddFriend = id => {
         const newUserObject = {
@@ -52,7 +53,7 @@ export const MessageList = () => {
 
     return (
         <>
-            <div className="container-cards">
+            <div className="message-container-cards">
                 {messages.map(message => 
                     <MessageCard 
                         key={message.id} 
