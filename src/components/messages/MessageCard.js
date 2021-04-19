@@ -14,7 +14,7 @@ export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend }) =
                 <p>{message.user.name}</p> 
                 <p className="chatMessage">{message.chat}</p>
                 <div className="button-box">
-                    <button type="button" onClick={() => {
+                    <button className="friendadd" type="button" onClick={() => {
                     if (window.confirm(`Do you want to add ${message.user.name} as a friend ?`)) {
                          (handleAddFriend(message.user.id))} 
                          else {}}}> Add {message.user.name} as a Friend</button>

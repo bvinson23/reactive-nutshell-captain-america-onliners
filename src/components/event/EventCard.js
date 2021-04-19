@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./Event.css"; 
 const EventCard = props =>{
     return (
         <div className="card">
