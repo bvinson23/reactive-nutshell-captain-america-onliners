@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Route} from "react-router-dom"
-import EventList from "./event/EventList";
-import EventForm from './event/EventForm';
-import EventEditForm from "./event/EventEditForm";
+import {EventList} from "./event/EventList";
+import {EventForm} from './event/EventForm';
+import {EventEditForm} from "./event/EventEditForm";
 import { TaskList } from "./task/TaskList"
 import { TaskForm } from "./task/TaskForm";
 import { TaskEditForm } from "./task/TaskEditForm"

@@ -1,20 +1,26 @@
+// Author: Cody Jones, Carter Culkin
 import React from "react";
 import "./Event.css"; 
-const EventCard = props =>{
+import {useHistory} from 'react-router-dom'
+export const EventCard = ({ getDailyWeather, event, deleteEvent }) => {
+const history = useHistory();
+
     return (
         <div className="event-card">
             <div className="event-card-content">
                 <h3>
-                    <span className="eventCardName">{props.event.name}</span>
-                    <p className="eventDate">Date: {props.event.date}</p>
-                    <p className="eventLocation"> Location: {props.event.location}</p>
-                    <p className="eventZipcode">Zipcode: {props.event.zipcode}</p>
-                    <p className="eventUserId">User: {props.event.userId}</p>
-                    <button className="eventButtons"type ="button" onClick={() => props.history.push(`events/${props.event.id}/edit`)}>Edit</button>
+
+                    <span className="eventCardName">{event.name}</span>
+                    <p className="eventDate">Date: {event.date}</p>
+                    <p className="eventLocation"> Location: {event.location}</p>
+                    <p className="eventZipcode">Zipcode: {event.zipcode}</p>
+                    <p className="eventUserId">User: {event.userId}</p>
+                    <button className="eventButtons" type="button" onClick={() => getDailyWeather(event)}>Show Weather</button>
+                    <button className="eventButtons" type ="button" onClick={() => props.history.push(`events/${props.event.id}/edit`)}>Edit</button>
                     <button className="eventButtons" type ="button" onClick={() => props.deleteEvent(props.event.id)}>Delete</button>
+
                 </h3>
-                </div>
             </div>
+        </div>
     )
-};
-export default EventCard
+}
