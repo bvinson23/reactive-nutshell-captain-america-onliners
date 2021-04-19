@@ -6,12 +6,13 @@ import { useHistory } from 'react-router-dom';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, addMessage } from '../../modules/MessageManager';
-import { addFriend, getFriends } from '../../modules/FriendManager';
+import { addFriend, getFriends, potentialFriends } from '../../modules/FriendManager';
 
 export const MessageList = () => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const [message, setMessage] = useState({ chat: "", userId: currentUser })
+    const [isLoading, setIsLoading] = useState(false)
     const [isFriends, setIsFriends] = useState([])
     const [messages, setMessages] = useState([]);
     const history = useHistory();
@@ -67,6 +68,38 @@ export const MessageList = () => {
 
     const handleClickSaveMessage = (event) => {
         event.preventDefault()
+        setIsLoading(true)
+        let completeMessage = { ...message }
+
+        const privateMessage = () => {
+            let recId;
+            const lowerCaseMessage = completeMessage.chat.toLowerCase()
+            const privateDM = (
+                potentialFriends()
+                    .then(friends => {
+                        friends.filter(friend => {
+                            if (lowerCaseMessage.includes(`@${friend.name.toLowerCase()}`)) {
+                                recId = friend.id
+                            } return recId
+                        })
+                    }).then(() => {
+                        return recId
+                    })
+            )
+            return privateDM
+        }
+
+        privateMessage()
+            .then((res) => completeMessage.receiverId = res)
+            .then(() => addMessage(completeMessage))
+            .then(getMessages)
+            .then(() => {
+                setMessage({
+                    chat: "",
+                    userId: currentUser,
+                    receiverId: ""
+                })
+            }).then(setIsLoading(false))
 
         addMessage(message)
             .then(() => getAllMessages().then(setMessages))
