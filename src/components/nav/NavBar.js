@@ -7,8 +7,11 @@ export const NavBar = (props) => {
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
 
       <ul className="nav nav-pills nav-fill">
+      <li className="nav-item">
+          <Link className="nav-link" to="/">Weather</Link>
+        </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/">Articles</Link>
+          <Link className="nav-link" to="/articles">Articles</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/friends">Friends</Link>

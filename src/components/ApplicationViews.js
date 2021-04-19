@@ -14,7 +14,7 @@ import {AddFriendCard} from './friends/AddFriendCard'
 import { AddFriendList } from "./friends/AddFriendList";
 import { MessageList } from "./messages/MessageList";
 import { MessageEditForm } from "./messages/MessageEditForm";
-
+import {WeatherToday} from "./weather/WeatherToday";
 export const ApplicationViews = (props) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("nutshell_user") !== null)
@@ -29,7 +29,10 @@ export const ApplicationViews = (props) => {
     <>
       <Route exact path="/">
         {/* Render the component for news articles */}
-        <ArticleList />
+        <WeatherToday />
+      </Route>
+      <Route exact path="/articles">
+      <ArticleList />
       </Route>
       <Route path="/:articleId(\d+)/edit">
         {/* Render the component for editing news articles */}

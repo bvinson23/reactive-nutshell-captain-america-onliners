@@ -20,3 +20,13 @@ export const getCoordinates = (city) => {
         return coordinates;
     })
 }
+
+let todaysWeather = []
+export const todayWeather = () => {
+return fetch (`https://api.openweathermap.org/data/2.5/forecast?zip=37205,us&units=imperial&appid=d59dc1f6992122e296b8623774f76b27`)
+.then(response => response.json())
+.then(parsedResponse => {
+    todaysWeather = parsedResponse.today
+    return todaysWeather;
+})
+}

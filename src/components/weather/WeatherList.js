@@ -1,61 +1,83 @@
-// import {useWeatherData } from "./WeatherProvider.js"
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { EventContext } from "./EventProvider";
+import { WeatherToday } from "../weather/WeatherToday";
+import { WeatherContext } from "../weather/WeatherProvider";
+import { Button, Icon } from "semantic-ui-react"
 
-// const event = document.querySelector(".container")
-// const weatherTarget = document.querySelector(".weatherContainer")
+export const EventDetail = (_) => {
+  const { getEventById, deleteEvent } = useContext(EventContext);
+  const { getWeatherTemp, getWeatherPop } = useContext(WeatherContext);
+  const [weather, setWeather] = useState({});
+  const [pop, setPop] = useState({});
+  const [event, setEvent] = useState({});
+  const user = parseInt(localStorage.getItem("nutty_user"));
+  const [owned, setOwned] = useState(false);
+  const history = useHistory();
+  var options = { timezone: 'UTC' }
 
-// event.addEventListener("moveCapturedForcast", customEvent => {
-//     weatherTarget.innerHTML = "";
-//     FilterWeather()
-// })
+  const { eventId } = useParams();
 
-// export const FilterWeather = () => {
-//     let weatherData = useWeatherData()
-//     const fiveDayForecast = weatherData.filter(weather => {
-//           if (weather.dt_txt.split(" ")[1] === "00:00:00") {
-//                 return true
-//           }
-//     })
-//     showForecast(fiveDayForecast)
-// }
+  useEffect(() => {
+    getEventById(eventId).then((response) => {
+      setEvent(response);
+      if (user === response?.user.id) {
+        setOwned(true);
+      }
+    });
+  }, []);
+  useEffect(() => {
+    getEventById(eventId)
+      .then(getWeatherTemp)
+      .then((res) => {
+        setWeather(res);
+      });
+  }, []);
+  useEffect(() => {
+    getEventById(eventId)
+      .then(getWeatherPop)
+      .then((res) => {
+        setPop(res);
+      });
+  }, []);
 
-// export const getDayOfTheWeek = (weather) => {
-//     const date = new Date(weather.dt * 1000);
-//     const daysOfTheWeek = [
-//           'SUN',
-//           'MON',
-//           'TUE',
-//           'WED',
-//           'THU',
-//           'FRI',
-//           'SAT'
-//     ]
-//     const day = date.getDay()
-//     return daysOfTheWeek[day]
-// }
-
-// export const showForecast = (fiveDayForecast) => {
-//     contentTarget.innerHTML = `
-//     <h3 class="weatherTitle">Current Weather</h3>
-//     ${
-//     fiveDayForecast.map((thisDay) => {
-//           return `
-//                 <div class="forecast--card">
-//                       <div class="heading heading--forecast-card">
-//                             ${getDayOfTheWeek(thisDay)}
-//                       </div>
-//                       <div class="forecast-card--details">
-//                             <div class="forecast-card--image">
-//                               <img class="image forecast-image" src="http://openweathermap.org/img/wn/${thisDay.weather[0].icon}@2x.png">
-//                             </div>
-//                             <div class="temp--high">
-//                               ${Math.round(thisDay.main.temp_max)}&deg; F
-//                             </div>
-//                       </div>
-//                 </div>
-//           `
-//     }).join("")
-//       }`
-//     event.addEventListener("forecastHasBeenCaptured", customEvent => {
-//     FilterWeather()
-//     })
-// }
+  return (
+    <section className="events">
+      <section className="event">
+        <h3 className="event__name">{event.name}</h3>
+        <div>Date: {new Date(`${event.date}T07:00:00Z`).toDateString("en-US")}</div>
+        <div>
+          Location: {event.address} {event.city}, {event.state} {event.zip}{" "}
+        </div>
+        <p></p>
+        <div>
+          <button
+            icon
+            hidden={!owned}
+            onClick={() => {
+              history.push(`/events/edit/${event.id}`);
+            }}
+          >
+            <Icon name="edit" />
+          </button>
+          <span> </span>
+          <button
+            icon
+            color="red"
+            hidden={!owned}
+            onClick={() => {
+              deleteEvent(event.id).then((_) => {
+                history.push(`/events`);
+              });
+            }}
+          >
+            <Icon name="trash" />
+          </button>
+        </div>
+      </section>
+      <section className="event">
+        {<WeatherToday key={event.id} temp={weather} weather={pop} />}
+      </section>
+    </section >
+  );
+};
