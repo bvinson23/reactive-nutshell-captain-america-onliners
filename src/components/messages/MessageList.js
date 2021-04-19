@@ -27,8 +27,10 @@ export const MessageList = () => {
             "userId": id,
             "currentUserId": currentUser
         }
-        addFriend(newUserObject)
-            .then(setMessages(messages))
+        let yes = window.confirm("Are you sure you would like to add this person as a friend?")
+        if (yes === true) {
+            addFriend(newUserObject).then(history.push("/messages"))
+        }
     }
 
     const getMessageFriends = () => {
