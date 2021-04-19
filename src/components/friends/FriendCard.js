@@ -1,3 +1,4 @@
+// Author: Cody Jones
 import React from "react";
 
 export const FriendCard = ({ friend, handleDeleteFriend }) => {
