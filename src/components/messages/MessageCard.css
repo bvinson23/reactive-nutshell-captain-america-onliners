@@ -26,5 +26,28 @@ button{
 } 
 .friendadd{
     border: solid black 1px;
+    margin-left: .1em;
+    background-color: #6495ED ;
+}
+.messageEdit{
+    border: solid black 1px;
     margin-right: .2em;
+    margin-left: 11.8em;
+    background-color: #6495ED ;
+}
+.messageDelete{
+    border: solid black 1px;
+    background-color: #6495ED ;
+}
+.message-container-cards{
+    width: 33em;
+    margin-left: 36%;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+.chat-input{
+    width: 33em;
+    margin-left: 36%;
+    
 }

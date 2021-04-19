@@ -23,7 +23,7 @@ export const FriendList = () =>{
     }, [])
 
     return  (
-        <div className= "container-cards">
+        <div className= "friends-container-cards">
             <h2 className="friends_list">Friends List</h2>
             <Link to={`/friends/add`}>
                         <button className="addFriendButton">Add A Friend</button>

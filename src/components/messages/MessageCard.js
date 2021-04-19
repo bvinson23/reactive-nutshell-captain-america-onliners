@@ -19,11 +19,11 @@ export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend }) =
                          (handleAddFriend(message.user.id))} 
                          else {}}}> Add {message.user.name} as a Friend</button>
                     <Link to={`/messages/${message.id}/edit`}>
-                        <button type="button">
+                        <button className="messageEdit"type="button">
                             Edit
                         </button>
                     </Link>
-                    <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
+                    <button className="messageDelete" type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
                 </div>
             </div>
         </>

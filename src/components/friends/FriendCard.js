@@ -2,7 +2,7 @@ import React from "react";
 import "./Friends.css"
 export const FriendCard = ({ friend, handleDeleteFriend }) => {
     return (
-        <div className="card">
+        <div className="friend-card">
                     
             <div className="card-content ">
                 <h3>

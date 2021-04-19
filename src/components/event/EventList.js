@@ -29,7 +29,7 @@ const EventList = (props) => {
                     New Event
                 </button>
             </section>
-            <div className="container-cards">
+            <div className="event-container-cards">
                 {events.map(event => {
                     if (event.userId === parseInt(sessionStorage.getItem("nutshell_user"))) {
                         return (
