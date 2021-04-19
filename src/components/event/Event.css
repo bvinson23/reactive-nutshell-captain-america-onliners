@@ -20,6 +20,7 @@
     border: solid black 1px;
     margin-right: .2em;
     height: 2em;
+    
   }
 .event-container-cards{
     width: 9em;
@@ -35,4 +36,14 @@
     flex: 0 1 24%;
     border-radius: 5px;
     margin-top: 1em;
+}
+.eventButton{
+    border-radius: 5px;
+    margin-top: 6px;
+    border: 0px black solid;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 23px;
+    background-color: #40a8c4;
 }
