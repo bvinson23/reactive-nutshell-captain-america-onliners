@@ -1,0 +1,22 @@
+/* Authors Preston and Carter*/
+.container-cards {
+    width: 33em;
+    margin-left: 40%;
+}
+.card-content{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    margin-top:0px;
+    padding: 1em;
+    max-width: 100em;
+}
+.friends_list{
+    margin-top: 2.8%;
+}
+.card-content button {
+    width: 50em;
+}
+.buttonRemoveFriend{
+    width: 15px;
+}

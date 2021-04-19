@@ -1,0 +1,12 @@
+/* Authors Preston and Carter*/
+.article-cards{
+    display: flex;
+    flex-direction: column;
+    border-style: hidden;
+    margin-left: 34%;
+    width: 33%;
+    background-color: rgb(192,198,200);
+    margin: 1em;
+    border-style: hidden;
+    border-radius: 1em;
+  }
