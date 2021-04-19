@@ -6,11 +6,13 @@ import { useHistory } from 'react-router-dom';
 import { MessageCard } from "./MessageCard";
 import { MessageForm } from "./MessageForm";
 import { deleteMessage, getAllMessages, addMessage } from '../../modules/MessageManager';
+import { addFriend, getFriends } from '../../modules/FriendManager';
 
 export const MessageList = () => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const [message, setMessage] = useState({ chat: "", userId: currentUser })
+    const [isFriends, setIsFriends] = useState([])
     const [messages, setMessages] = useState([]);
     const history = useHistory();
 
@@ -19,6 +21,36 @@ export const MessageList = () => {
             setMessages(messagesFromAPI)
         });
     };
+
+    const handleAddFriend = id => {
+        const newUserObject = {
+            "userId": id,
+            "currentUserId": currentUser
+        }
+        addFriend(newUserObject)
+            .then(setMessages(messages))
+    }
+
+    const getMessageFriends = () => {
+        return getFriends(currentUser)
+            .then(friends => {
+                setIsFriends(friends)
+            })
+    }
+
+    const checkForFriend = (message) => {
+        let isFriend = false
+        let checkedFriends = []
+        checkedFriends = isFriends.filter(friend =>
+            friend.userId === message.userId)
+
+        if (checkedFriends.length > 0) {
+            isFriend = true
+        } else if (message.userId === currentUser) {
+            isFriend = true
+        }
+        return isFriend
+    }
 
     const handleDeleteMessage = id => {
         deleteMessage(id)
@@ -43,14 +75,20 @@ export const MessageList = () => {
         getMessages();
     }, []);
 
+    useEffect(() => {
+        getMessageFriends()
+    }, [])
+
     return (
         <>
             <div className="container-cards">
                 {messages.map(message => 
                     <MessageCard 
-                        key={message.id} 
+                        key={message.id}
+                        checkForFriend={checkForFriend}
                         message={message} 
-                        handleDeleteMessage={handleDeleteMessage} />
+                        handleDeleteMessage={handleDeleteMessage}
+                        handleAddFriend={handleAddFriend} />
                     )}
             </div>
             <div className="chat-input">
