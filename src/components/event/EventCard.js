@@ -1,7 +1,7 @@
 // Author: Cody Jones, Carter Culkin
 import React from "react";
 import {useHistory} from 'react-router-dom'
-export const EventCard = ({ event, deleteEvent }) => {
+export const EventCard = ({ getDailyWeather, event, deleteEvent }) => {
 const history = useHistory();
 
     return (
@@ -13,7 +13,7 @@ const history = useHistory();
                     <p className="eventLocation"> Location: {event.location}</p>
                     <p className="eventZipcode">Zipcode: {event.zipcode}</p>
                     <p className="eventUserId">User: {event.userId}</p>
-                
+                    <button type="button" onClick={() => getDailyWeather(event)}>Show Weather</button>
                     <button type="button" onClick={() => history.push(`events/${event.id}/edit`)}>Edit</button>
                     <button type="button" onClick={() => deleteEvent(event.id)}>Delete</button>
                 </h3>
