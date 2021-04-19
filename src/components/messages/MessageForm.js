@@ -1,17 +1,13 @@
+// Component to contain form for creating a new message
+// Author: Brandon Vinson
+
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export const MessageForm = ({ message, handleClickSaveMessage, handleFieldChange }) => {
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
-    // const [message, setMessage] = useState({ chat: "", userId: currentUser});
     const history = useHistory();
-
-    // const handleFieldChange = (event) => {
-    //     const newMessage = { ...message }
-    //     newMessage[event.target.id] = event.target.value
-    //     setMessage(newMessage)
-    // }
 
     return (
         <section className="section-content">
