@@ -1,5 +1,5 @@
 // Component to hold the list of articles
-// Author: Brandon Vinson, Cody Jones
+// Author: Brandon Vinson
 
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
