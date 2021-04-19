@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
-import EventManager from "../../modules/EventManager"
+import {updateEvent, get} from "../../modules/EventManager"
+import {useHistory, useParams} from 'react-router-dom'
 
-const EventEditForm = props => {
+export const EventEditForm = () => {
     const [event, setEvent] =useState({ name:"", date:"", location:"", zipcode: "", userId:parseInt(sessionStorage.getItem("nutshell_user"))})
     const [isLoading, setIsLoading] = useState(false);
-    
+    const history = useHistory();
+    const eventId = useParams();
     const handleFieldChange = evt =>{
         const stateToChange = { ...event };
         stateToChange[evt.target.id] = evt.target.value;
@@ -15,7 +17,7 @@ const EventEditForm = props => {
         console.log(event)
         setIsLoading(true);
         const editedEvent = {
-            id: event.id,
+            id: eventId,
             name: event.name,
             date: event.date,
             location: event.location,
@@ -23,11 +25,11 @@ const EventEditForm = props => {
             userId: event.userId
         }
   
-    EventManager.updateEvent(editedEvent)
-    .then(() => props.history.push("/events"))
+    updateEvent(editedEvent)
+    .then(() => history.push("/events"))
     }
     useEffect(() =>{
-        EventManager.get(props.match.params.eventId)
+        get(eventId)
         .then(event => {
             setEvent(event);
             setIsLoading(false);
@@ -100,4 +102,3 @@ const EventEditForm = props => {
     );
 }
 
-export default EventEditForm
