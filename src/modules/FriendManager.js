@@ -1,3 +1,4 @@
+// Author: Cody Jones
 const remoteURL = "http://localhost:8088"
 const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
