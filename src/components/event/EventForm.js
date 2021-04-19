@@ -1,3 +1,4 @@
+// Author: Cody Jones, Carter Culkin
 import React, { useState } from 'react';
 import {post} from '../../modules/EventManager';
 import {useHistory} from 'react-router-dom';

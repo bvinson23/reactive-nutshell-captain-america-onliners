@@ -1,3 +1,4 @@
+// Author: Cody Jones, Carter Culkin
 import React, { useState, useEffect } from 'react';
 import { EventCard } from './EventCard';
 import {remove, getAll} from '../../modules/EventManager';
