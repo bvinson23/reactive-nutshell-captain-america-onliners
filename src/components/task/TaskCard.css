@@ -1,8 +1,106 @@
-.button{
-    width: 30px;
+
+.cardButton{
+    border-radius: 5px;
+    margin-top: 6px;
+    border: 0px black solid;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 23px;
+    background-color: #40a8c4;
+    /* box-shadow:  10px 5px 5px #569cae; */
 }
 
 .TaskCard{
+    background-color: #a2d5f2 ;
     display: flex;
     flex-direction: row;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 3%;
+    box-shadow: 10px 5px 5px #569cae;
 }
+
+.contentHolder{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 5%;
+}
+
+.buttonHolder{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.card-date{
+    font-size: 25px;
+}
+
+.card-name{
+    font-size:35px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #07689f;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #07689f;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

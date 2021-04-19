@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import EventManager from '../../modules/EventManager';
+import {post} from '../../modules/EventManager';
+import {useHistory} from 'react-router-dom';
 
-const EventForm = props => {
+export const EventForm = () => {
     const [event, setEvent] = useState({ name: "", date: "", location: "", zipcode: "", userId: parseInt(sessionStorage.getItem("nutshell_user")) });
     const [isLoading, setIsLoading] = useState(false);
+    const history = useHistory();
 
     const handleFieldChange = evt => {
         const stateToChange = { ...event };
@@ -16,8 +18,8 @@ const EventForm = props => {
             window.alert("Fill all fields to proceed");
         } else {
             setIsLoading(true);
-            EventManager.post(event)
-                .then(() => props.history.push("/events"));
+           post(event)
+                .then(() => history.push("/events"));
         }
     }
 
@@ -78,4 +80,3 @@ const EventForm = props => {
     )
 };
 
-export default EventForm
