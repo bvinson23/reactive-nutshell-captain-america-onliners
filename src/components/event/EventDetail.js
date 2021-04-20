@@ -1,3 +1,6 @@
+// Component that handles the weather populating for an event
+// Author: Cody Jones
+
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { EventContext } from "./EventProvider";

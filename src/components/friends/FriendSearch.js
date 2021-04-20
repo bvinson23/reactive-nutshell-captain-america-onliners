@@ -1,4 +1,6 @@
+// Component that searches for friends
 // Author: Cody Jones
+
 import React from 'react';
 import {FriendList} from './FriendList'
 import {Link} from 'react-router-dom'

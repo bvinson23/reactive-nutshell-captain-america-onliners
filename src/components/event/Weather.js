@@ -1,3 +1,6 @@
+// Component that handles the weather card
+// Authors: Carter Culkin, Cody Jones
+
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
 export const todayweather = () => {
   const { data, isLoading, errorMessage } = useOpenWeather({

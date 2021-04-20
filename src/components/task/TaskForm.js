@@ -1,3 +1,5 @@
+// Component that handles that form for creating a task
+// Author: Preston Shotts
 
 import React, { useState } from "react"
 import { addTask } from "../../modules/TaskManager" 

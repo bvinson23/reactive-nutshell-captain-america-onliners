@@ -1,3 +1,5 @@
+// Component that hanldes the registering of a user
+
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
 

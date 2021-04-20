@@ -1,4 +1,6 @@
-//Author Carter Culkin
+// Module that hanldes the fetch calls for events
+//Author: Carter Culkin
+
 const remoteURL = "http://localhost:8088"
 export const get = (id) => {
     return fetch(`${remoteURL}/events/${id}`).then(result => result.json())
@@ -21,7 +23,6 @@ return fetch(`${remoteURL}/events`, {
 }).then(data => data.json())
     };
     export const updateEvent = (editedEvent) => {
-console.log(editedEvent)
 return fetch(`${remoteURL}/events/${editedEvent.id}`, {
   method: "PUT",
   headers: {

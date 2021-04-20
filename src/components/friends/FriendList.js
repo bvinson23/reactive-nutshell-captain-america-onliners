@@ -1,4 +1,6 @@
+// Component that holds the list of friends
 // Author: Cody Jones
+
 import React, { useEffect, useState } from 'react';
 import {FriendCard} from "./FriendCard"
 import {deleteFriend, getAllFriends} from '../../modules/FriendManager'

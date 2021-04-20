@@ -1,4 +1,6 @@
+// Component that holds one friend
 // Author: Cody Jones
+
 import React from "react";
 import "./Friends.css"
 export const FriendCard = ({ friend, handleDeleteFriend }) => {

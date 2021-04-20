@@ -1,3 +1,6 @@
+// Module that hanldes the fetch calls for tasks
+// Author: Preston Shotts
+
 const remoteURL = "http://localhost:8088"
 
 

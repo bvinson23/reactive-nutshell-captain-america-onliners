@@ -1,3 +1,7 @@
+// Module that handles the fetch calls for articles
+// Author: Brandon Vinson
+
+
 const remoteURL = "http://localhost:8088"
 
 export const getArticleById = (articleId) => {

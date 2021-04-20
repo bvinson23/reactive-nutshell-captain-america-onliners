@@ -1,3 +1,6 @@
+// Component that holds the list of tasks
+// Author: Preston Shotts
+
 import React, { useState, useEffect } from 'react';
 import { getAllTasks, deleteTask, completeTask} from '../../modules/TaskManager';
 import { useHistory } from 'react-router-dom'

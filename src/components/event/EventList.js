@@ -1,4 +1,6 @@
-// Author: Cody Jones, Carter Culkin
+// Component that holds the list of all events
+// Authors: Cody Jones, Carter Culkin
+
 import React, { useState, useEffect } from 'react';
 import "./Event.css"; 
 import { EventCard } from './EventCard';
@@ -25,7 +27,6 @@ export const EventList = (props) => {
     const deleteEvent = id => {
         remove(id)
             .then(() => getAll().then(setEvents));
-        console.log(deleteEvent)
     }
     
     const weatherApi = "d59dc1f6992122e296b8623774f76b27"
