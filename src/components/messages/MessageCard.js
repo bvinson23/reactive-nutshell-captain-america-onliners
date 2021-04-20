@@ -10,7 +10,12 @@ export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend, che
 
     return (
         <section className="messageCard">
-            <div className="message"> { checkForFriend(message) ? <>{message.user.name} </>:<Link to={"/messages"}><button type="button" className="friendadd" onClick={() => handleAddFriend(message.userId)}>{message.user.name}</button></Link>} : {message.chat}
+            <div className="message"> { checkForFriend(message) ? <>{message.user.name} </>:
+            <Link to={"/messages"}>
+                <button type="button" className="friendadd" onClick={() => handleAddFriend(message.userId)}>
+                    {message.user.name}
+                </button>
+                </Link>} : {message.chat}
             {message.userId === currentUser ? 
             <>
             <div className="message-btns">
@@ -26,8 +31,45 @@ export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend, che
             </div>
             </>
             : null
+            
+
         }</div>
+        <div className="messageCurlHolder">
+        <div className="messageCurl"></div>
+        <div className="messageCurlCover"></div>
+        </div>
         </section>
+
+// return (
+//     <>
+//         <div className="chat-message">
+//             <p>{message.user.name}</p> 
+//             <p className="messageChatBox">{message.chat}</p>
+//             <div className="messageCurlHolder">
+//                 <div className="messageCurl"></div>
+//                 <div className="messageCurlCover"></div>
+//             </div>
+//             <div className="button-box">
+//                 <button type="button" onClick={() => {
+//                 if (window.confirm(`Do you want to add ${message.user.name} as a friend ?`)) {
+//                      (handleAddFriend(message.user.id))} 
+//                      else {}}}> Add {message.user.name} as a Friend</button>
+//                 <Link to={`/messages/${message.id}/edit`}>
+//                     <button type="button">
+//                         Edit
+//                     </button>
+//                 </Link>
+//                 <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
+//             </div>
+//         </div>
+//     </>
+// )
+// }
+
+
+
+
+
         // <>
         //     <div className="chat-message">
         //         <p>{message.user.name} said, "{message.chat}"</p>
