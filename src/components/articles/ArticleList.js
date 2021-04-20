@@ -82,7 +82,7 @@ export const ArticleList = () => {
                         New Article
                     </button>
             </section>
-            <button type="button" onClick={() => getDailyWeather()}>Show Weather</button>
+            <button className="move" type="button" onClick={() => getDailyWeather()}>Show Weather</button>
            
             {weather?.dt > 0 ? <WeatherCard daily={weather} dailyWeather={dailyWeather} /> : ""}
             <div className="article-cards">
