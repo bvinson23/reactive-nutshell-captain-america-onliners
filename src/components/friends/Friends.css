@@ -24,3 +24,9 @@
   margin-top: 1em;
   flex: 0 1 24%;
 }
+.SearchBox{
+    margin-left: .5em;
+}
+.SearchBox button{
+    background-color: #A2D5F2;
+}
