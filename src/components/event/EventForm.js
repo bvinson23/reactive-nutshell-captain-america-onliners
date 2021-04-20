@@ -1,4 +1,6 @@
-// Author: Cody Jones, Carter Culkin
+// Component that handles the form for creating a new event
+// Authors: Cody Jones, Carter Culkin
+
 import React, { useState } from 'react';
 import {post} from '../../modules/EventManager';
 import {useHistory} from 'react-router-dom';

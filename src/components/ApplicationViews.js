@@ -1,3 +1,6 @@
+// Component to hold the routes for the app
+// Authors: Carter Culkin, Cody Jones, Preston Shotts, Brandon Vinson
+
 import React, { useState } from "react"
 import { Route} from "react-router-dom"
 import {EventList} from "./event/EventList";

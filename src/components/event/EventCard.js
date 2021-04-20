@@ -1,4 +1,6 @@
-// Author: Cody Jones, Carter Culkin
+//Component that contains one event card
+// Authors: Cody Jones, Carter Culkin
+
 import React from "react";
 import {useHistory} from 'react-router-dom'
 import "./Event.css"

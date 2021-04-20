@@ -1,3 +1,6 @@
+// Component that handles the editing of an event
+// Author: Carter Culkin
+
 import React, { useState, useEffect } from "react"
 import {updateEvent, get} from "../../modules/EventManager"
 import {useHistory, useParams} from 'react-router-dom'
@@ -14,7 +17,6 @@ export const EventEditForm = () => {
     }
     const updateExistingEvent = evt => {
         evt.preventDefault()
-        console.log(event)
         setIsLoading(true);
         const editedEvent = {
             id: eventId,

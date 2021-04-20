@@ -1,3 +1,5 @@
+// Component that handles the login of a user
+
 import React, { useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css"

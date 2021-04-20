@@ -75,3 +75,8 @@ You will be using [session storage](https://javascript.info/localstorage#session
    * Short paragraphs
    * Bulleted lists
 7. Strive for consistency.
+
+### Miro Wire Frame
+https://miro.com/app/board/o9J_lKAp8JA=/
+### DB Diagram
+https://dbdiagram.io/d/60747604b6aeb3052d8fbc53

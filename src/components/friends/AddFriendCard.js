@@ -1,4 +1,6 @@
+// Component that handles adding a friend
 // Author: Cody Jones
+
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 
@@ -6,7 +8,6 @@ import { useHistory } from 'react-router-dom'
 
 export const AddFriendCard = ({user, handleAddFriend}) => {
     const currentUser = user.friends;
-    console.log(currentUser)
    
     const history = useHistory();
     return (

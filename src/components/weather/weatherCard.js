@@ -1,3 +1,7 @@
+// Component that contains a single weather card
+// Author: 
+
+
 import React from "react";
 import "./weather.css"
 export const WeatherCard = ( {daily, dailyWeather} ) => {

@@ -1,3 +1,6 @@
+// Component that handles editing a task
+// Author: Preston Shotts
+
 import React, { useState, useEffect } from "react"
 import { editTask, getTaskById,} from "../../modules/TaskManager" //!fix
 import "./TaskForm.css"
