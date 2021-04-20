@@ -3,7 +3,7 @@
     margin-top: .2em;
     border: .1em black solid;
     font-size: 1em;
-    background-color: #40a8c4;
+    background-color: #A2D5F2;
 }
 
 .button-box{
@@ -27,17 +27,17 @@
 .friendadd{
     border: solid black 1px;
     margin-left: .1em;
-    background-color: #6495ED ;
+    background-color: #A2D5F2; ;
 }
 .messageEdit{
     border: solid black 1px;
     margin-right: .2em;
     margin-left: 11.8em;
-    background-color: #6495ED ;
+    background-color: #A2D5F2; ;
 }
 .messageDelete{
     border: solid black 1px;
-    background-color: #6495ED ;
+    background-color: #A2D5F2; ;
 }
 .message-container-cards{
     width: 33em;

@@ -75,7 +75,7 @@ border-radius: 1em;
 }
 .move{
   margin-left: .5em;
-  flood-color: darkblue;
+  background-color: #A2D5F2;
 }
 .Weather{
   display: flex;
