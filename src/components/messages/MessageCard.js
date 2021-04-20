@@ -15,10 +15,10 @@ export const MessageCard = ({ message, handleDeleteMessage, handleAddFriend, che
             <>
             <div className="message-btns">
                 <Link to={`/messages/${message.id}/edit`}>
-                <button type="button" className="messageEdit">Edit</button>
+                <button type="button" className="messageButtons">Edit</button>
                 </Link>
                 <button type="button" 
-                        className="messageDelete" 
+                        className="messageButtons"
                         onClick={() => handleDeleteMessage(message.id)}>
                             Delete
                 </button>

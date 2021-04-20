@@ -39,11 +39,8 @@
 }
 .eventButton{
     border-radius: 5px;
-    margin-top: 6px;
-    border: 0px black solid;
-    padding: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
-    font-size: 23px;
+    margin-top: .12em;
+    min-width: 10em;
+    font-size: .5em;
     background-color: #40a8c4;
 }

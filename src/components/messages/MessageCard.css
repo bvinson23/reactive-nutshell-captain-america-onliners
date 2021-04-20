@@ -1,8 +1,8 @@
 /* Authors Preston and Carter*/
-button{
-    margin-top: 6px;
-    border: 0px black solid;
-    font-size: 23px;
+.messageButtons{
+    margin-top: .2em;
+    border: .1em black solid;
+    font-size: 1em;
     background-color: #40a8c4;
 }
 

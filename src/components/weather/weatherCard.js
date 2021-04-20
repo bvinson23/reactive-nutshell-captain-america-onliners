@@ -16,7 +16,8 @@ export const WeatherCard = ( {daily, dailyWeather} ) => {
     <h3>Weather</h3>
       {dailyWeather}
       <h4>{weatherTime(daily?.dt)}</h4>
-      <p> Today's Weather Is: High: {temperatureConverter(daily?.temp.max)}&deg; Low:{temperatureConverter(daily?.temp.min)}&deg;</p>
+      <p> Today's today we have a high of {temperatureConverter(daily?.temp.max)}&deg;, </p>
+      <p>and a low of {temperatureConverter(daily?.temp.min)}&deg;</p>
       <p> Conditions:{daily?.weather[0].description}</p>
       </section>
       </>

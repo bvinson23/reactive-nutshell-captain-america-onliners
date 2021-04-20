@@ -1,3 +1,4 @@
+/*Author: Carter Culkin*/
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -24,12 +25,6 @@ font-size: 80%;
 color: darkslategrey;
 justify-content: center;
 }
-
-.content-petname {
-color: darkslategrey;
-}
-
-
 
 .card button:hover {
 background-color: darkblue;
@@ -77,5 +72,15 @@ border-radius: 1em;
   border: solid black 1px;
   margin-right: .2em;
   height: 2em;
-  
 }
+.move{
+  margin-left: .5em;
+  flood-color: darkblue;
+}
+.Weather{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-left: 1em;
+}
+
